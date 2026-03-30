@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portofolio Prestasi Fadel</title>
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f9f9f9;
+        margin: 0;
+        padding: 10px;
+        color: #1a1a1a;
+    }
+    .container {
+        max-width: 1000px;
+        margin: 1rem auto;
+        padding: 2rem;
+        background-color: #fff;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.8s ease;
+    }
+    .container.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    h1 { text-align: center; color: #4b0082; font-size: 1.8rem; }
+    h2 { color: #4b0082; border-bottom: 2px solid #e6d9f5; padding-bottom: 5px; margin-top: 2rem; }
+
+    /* Container Tabel agar bisa di-scroll di HP */
+    .table-wrapper {
+        width: 100%;
+        overflow-x: auto;
+        margin-top: 1rem;
+        -webkit-overflow-scrolling: touch;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        min-width: 850px; /* Menjaga agar teks panjang tidak menumpuk */
+    }
+    table th, table td {
+        border: 1px solid #ddd;
+        padding: 12px 8px;
+        text-align: center;
+        font-size: 0.95rem;
+    }
+    table th { background-color: #4b0082; color: #fff; }
+    table tbody tr:hover { background-color: #f4f0fa; }
+
+    /* Link Putih untuk Tabel (Sesuai Request) */
+    .link-prestasi {
+        background-color: transparent !important;
+        color: #4b0082 !important; /* Warna ungu agar senada, atau ganti #fff jika bg tabel gelap */
+        padding: 0 !important;
+        text-decoration: underline !important;
+        display: inline !important;
+        font-weight: bold;
+    }
+
+    /* Tombol Instagram */
+    .btn-ig {
+        color: #fff;
+        background-color: #4b0082;
+        padding: 0.4rem 0.8rem;
+        border-radius: 6px;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    @media (max-width: 600px) {
+        .container { padding: 1rem; }
+        h1 { font-size: 1.4rem; }
+    }
+
+    ul { line-height: 1.8; }
+    .note { font-size: 0.85rem; color: #666; margin-top: 20px; font-style: italic; }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Portofolio Prestasi Siswa</h1>
+    <p style="text-align:center;"><strong>Terakhir Diperbarui:</strong> 30 Maret 2026</p>
+
+    <h2>Profil Siswa</h2>
+    <ul>
+        <li><strong>Nama Lengkap:</strong> Fadel Shafwan Maliki</li>
+        <li><strong>Tempat & Tanggal Lahir:</strong> Jakarta, 11 Juni 2009</li>
+        <li><strong>Kelas:</strong> 10.4 / X.4</li>
+        <li><strong>Asal Sekolah:</strong> SMAS Pgri 3 Kota DKI Jakarta, Provinsi Jakarta Selatan</li>
+        <li><strong>Instagram:</strong> <a href="https://www.instagram.com/fadelshafwanmaliki" target="_blank" class="btn-ig">Follow</a></li>
+    </ul>
+
+    <h2>Prestasi Akademik Nasional (2026)</h2>
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Kompetisi / Olimpiade</th>
+                    <th>Penyelenggara</th>
+                    <th>Bidang Studi</th>
+                    <th>Pencapaian</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td><a href="https://app.puskanas.id/#piaghappyQ0JTNVFCKzNUVVJMVjhqeWQzazF5QT09" target="_blank" class="link-prestasi">Ramadhan Science Competition Indonesia (RSCI)</a></td><td>Fosnas / Puskanas</td><td>Informatika</td><td>Medali Emas</td></tr>
+                <tr><td>2</td><td><a href="https://app.puskanas.id/#piaghappyT2F4OHBGaW54UHhKNzYxY05aMG1HUT09" target="_blank" class="link-prestasi">Semarak Sains Nasional (SSN)</a></td><td>Gemanesia / Puskanas</td><td>Ekonomi</td><td>Medali Emas</td></tr>
+                <tr><td>3</td><td><a href="https://app.puskanas.id/#piaghappyMWplSVc3MXFyRUpPdm9LZGJ2NGlTUT09" target="_blank" class="link-prestasi">Semarak Sains Nasional (SSN)</a></td><td>Gemanesia / Puskanas</td><td>Ppkn</td><td>Medali Emas</td></tr>
+                <tr><td>4</td><td><a href="https://app.puskanas.id/#piaghappyU0MydjhYM2p3ZDhPM2N6eGpOUFp1QT09" target="_blank" class="link-prestasi">Semarak Sains Nasional (SSN)</a></td><td>Gemanesia / Puskanas</td><td>Informatika</td><td>Medali Emas</td></tr>
+                <tr><td>5</td><td>National Science Competition (NSC)</td><td>Puskanas</td><td>Ppkn</td><td>Coming Soon</td></tr>
+                <tr><td>6</td><td>National Science Competition (NSC)</td><td>Puskanas</td><td>Informatika</td><td>Coming Soon</td></tr>
+                <tr><td>7</td><td>Olimpiade Sains Muda Indonesia (OSMI)</td><td>Muda Sains Nasional / Sentral</td><td>Ekonomi</td><td>Coming Soon</td></tr>
+                <tr><td>8</td><td>Olimpiade Sains Muda Indonesia (OSMI)</td><td>Muda Sains Nasional / Sentral</td><td>Informatika</td><td>Coming Soon</td></tr>
+                <tr><td>9</td><td>Future Science Competition (FSC)</td><td>Yaspresnas / Sentral</td><td>Bahasa Indonesia</td><td>Coming Soon</td></tr>
+                <tr><td>10</td><td>Future Science Competition (FSC)</td><td>Yaspresnas / Sentral</td><td>Bahasa Inggris</td><td>Coming Soon</td></tr>
+                <tr><td>11</td><td>Future Science Competition (FSC)</td><td>Yaspresnas / Sentral</td><td>Matematika</td><td>Coming Soon</td></tr>
+                <tr><td>12</td><td>Future Science Competition (FSC)</td><td>Yaspresnas / Sentral</td><td>Kimia</td><td>Coming Soon</td></tr>
+                <tr><td>13</td><td>Future Science Competition (FSC)</td><td>Yaspresnas / Sentral</td><td>Informatika</td><td>Coming Soon</td></tr>
+                <tr><td>14</td><td>Generasi Unggul Dalam Akademik (GARUDA)</td><td>Lembaga Olimpiade Nasional / Sentral</td><td>Matematika</td><td>Coming Soon</td></tr>
+                <tr><td>15</td><td>Generasi Unggul Dalam Akademik (GARUDA)</td><td>Lembaga Olimpiade Nasional / Sentral</td><td>Akuntansi</td><td>Coming Soon</td></tr>
+                <tr><td>16</td><td>Generasi Unggul Dalam Akademik (GARUDA)</td><td>Lembaga Olimpiade Nasional / Sentral</td><td>Geografi</td><td>Coming Soon</td></tr>
+                <tr><td>17</td><td>Generasi Unggul Dalam Akademik (GARUDA)</td><td>Lembaga Olimpiade Nasional / Sentral</td><td>Informatika</td><td>Coming Soon</td></tr>
+                <tr><td>18</td><td>Prestasi Tambahan Nasional</td><td>Lembaga Terkait</td><td>Umum</td><td>Coming Soon</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h2>Pengalaman Ekstrakurikuler</h2>
+    <ul>
+        <li><strong>Bulu Tangkis</strong> - Angkatan 14</li>
+    </ul>
+
+    <p class="note">Catatan: Dokumen ini disusun untuk keperluan akademik. Alamat rumah tidak dicantumkan demi privasi.</p>
+</div>
+
+<script>
+    window.addEventListener('load', () => {
+        document.querySelector('.container').classList.add('visible');
+    });
+</script>
+
+</body>
+</html>
