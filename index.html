@@ -32,8 +32,26 @@
     table th { background-color: #4b0082; color: white; padding: 12px; text-align: center; font-size: 0.9rem; }
     table td { border-bottom: 1px solid #eee; padding: 15px 10px; vertical-align: top; }
     
-    .nama-lomba { font-weight: bold; color: #4b0082; text-decoration: none; display: block; margin-bottom: 5px; font-size: 1rem; }
-    .detail-text { font-size: 0.85rem; color: #666; line-height: 1.5; }
+    /* Perbedaan Link */
+    .link-aktif { 
+        font-weight: bold; 
+        color: #4b0082; 
+        text-decoration: underline; 
+        display: block; 
+        margin-bottom: 5px; 
+        font-size: 1rem; 
+    }
+    .tanpa-link { 
+        font-weight: bold; 
+        color: #666; 
+        text-decoration: none; 
+        display: block; 
+        margin-bottom: 5px; 
+        font-size: 1rem; 
+        cursor: default;
+    }
+
+    .detail-text { font-size: 0.85rem; color: #777; line-height: 1.5; }
     .status-badge { 
         display: inline-block; 
         padding: 2px 8px; 
@@ -43,7 +61,7 @@
         background: #e6d9f5;
         color: #4b0082;
     }
-    .coming-soon { color: #999; font-style: italic; background: #f0f0f0; }
+    .coming-soon { color: #888; font-style: italic; background: #f0f0f0; }
 
     .profil-list { list-style: none; padding: 0; }
     .profil-list li { margin-bottom: 8px; font-size: 0.95rem; }
@@ -59,7 +77,6 @@
     <h2>Profil Siswa</h2>
     <ul class="profil-list">
         <li><strong>Nama:</strong> Fadel Shafwan Maliki</li>
-        <li><strong>TTL:</strong> Jakarta, 11 Juni 2009</li>
         <li><strong>Sekolah:</strong> SMAS PGRI 3 Jakarta (Kelas X.4)</li>
         <li><strong>Instagram:</strong> <a href="https://www.instagram.com/fadelshafwanmaliki" target="_blank" class="btn-ig">@fadelshafwanmaliki</a></li>
     </ul>
@@ -76,12 +93,7 @@
             </tbody>
     </table>
 
-    <h2>Ringkasan & Ekstrakurikuler</h2>
-    <ul class="profil-list">
-        <li><strong>Eskul:</strong> Bulu Tangkis (Angkatan 14)</li>
-        <li><strong>Total Capaian:</strong> 4 Medali Emas, 1 Medali Perak, 9 Terdaftar</li>
-    </ul>
-    <p style="font-size: 0.75rem; color: #999; margin-top: 30px; font-style: italic;">* Dokumen digital untuk keperluan portofolio akademik.</p>
+    <p style="font-size: 0.75rem; color: #999; margin-top: 30px; font-style: italic;">* Nama berwarna ungu dan bergaris bawah memiliki sertifikat digital.</p>
 </div>
 
 <script>
@@ -90,30 +102,37 @@
         { nama: "Semarak Sains Nasional (SSN)", link: "https://app.puskanas.id/#piaghappyT2F4OHBGaW54UHhKNzYxY05aMG1HUT09", host: "Gemanesia / Puskanas", bidang: "Ekonomi", hasil: "Medali Emas" },
         { nama: "Semarak Sains Nasional (SSN)", link: "https://app.puskanas.id/#piaghappyMWplSVc3MXFyRUpPdm9LZGJ2NGlTUT09", host: "Gemanesia / Puskanas", bidang: "Ppkn", hasil: "Medali Emas" },
         { nama: "Semarak Sains Nasional (SSN)", link: "https://app.puskanas.id/#piaghappyU0MydjhYM2p3ZDhPM2N6eGpOUFp1QT09", host: "Gemanesia / Puskanas", bidang: "Informatika", hasil: "Medali Emas" },
-        { nama: "National Science Competition (NSC)", host: "Puskanas", bidang: "Ppkn", hasil: "Medali Emas" },
-        { nama: "National Science Competition (NSC)", link: "#", host: "Puskanas", bidang: "Informatika", hasil: "Medali Emas" },
-        { nama: "Olimpiade Sains Muda Indonesia (OSMI)", link: "#", host: "Muda Sains Nasional", bidang: "Ekonomi", hasil: "Medali Perak" },
-        { nama: "Olimpiade Sains Muda Indonesia (OSMI)", link: "#", host: "Muda Sains Nasional", bidang: "Informatika", hasil: "Medali Emas" },
-        { nama: "Future Science Competition (FSC)", link: "#", host: "Yaspresnas", bidang: "Bahasa Indonesia", hasil: "Coming Soon" },
-        { nama: "Future Science Competition (FSC)", link: "#", host: "Yaspresnas", bidang: "Bahasa Inggris", hasil: "Coming Soon" },
-        { nama: "Future Science Competition (FSC)", link: "#", host: "Yaspresnas", bidang: "Matematika", hasil: "Coming Soon" },
-        { nama: "Future Science Competition (FSC)", link: "#", host: "Yaspresnas", bidang: "Kimia", hasil: "Coming Soon" },
-        { nama: "Future Science Competition (FSC)", link: "#", host: "Yaspresnas", bidang: "Informatika", hasil: "Coming Soon" },
-        { nama: "Generasi Unggul Dalam Akademik (GARUDA)", link: "#", host: "Lembaga Olimpiade Nasional", bidang: "Matematika", hasil: "Coming Soon" },
-        { nama: "Generasi Unggul Dalam Akademik (GARUDA)", link: "#", host: "Lembaga Olimpiade Nasional", bidang: "Akuntansi", hasil: "Coming Soon" },
-        { nama: "Generasi Unggul Dalam Akademik (GARUDA)", link: "#", host: "Lembaga Olimpiade Nasional", bidang: "Geografi", hasil: "Coming Soon" },
-        { nama: "Generasi Unggul Dalam Akademik (GARUDA)", link: "#", host: "Lembaga Olimpiade Nasional", bidang: "Informatika", hasil: "Coming Soon" },
-        { nama: "Prestasi Tambahan Nasional", link: "#", host: "Lembaga Terkait", bidang: "Umum", hasil: "Coming Soon" }
+        { nama: "National Science Competition (NSC)", link: "", host: "Puskanas", bidang: "Ppkn", hasil: "Medali Emas" },
+        { nama: "National Science Competition (NSC)", link: "", host: "Puskanas", bidang: "Informatika", hasil: "Medali Emas" },
+        { nama: "Olimpiade Sains Muda Indonesia (OSMI)", link: "", host: "Muda Sains Nasional", bidang: "Ekonomi", hasil: "Medali Perak" },
+        { nama: "Olimpiade Sains Muda Indonesia (OSMI)", link: "", host: "Muda Sains Nasional", bidang: "Informatika", hasil: "Medali Emas" },
+        { nama: "Future Science Competition (FSC)", link: "", host: "Yaspresnas", bidang: "Bahasa Indonesia", hasil: "Coming Soon" },
+        { nama: "Future Science Competition (FSC)", link: "", host: "Yaspresnas", bidang: "Bahasa Inggris", hasil: "Coming Soon" },
+        { nama: "Future Science Competition (FSC)", link: "", host: "Yaspresnas", bidang: "Matematika", hasil: "Coming Soon" },
+        { nama: "Future Science Competition (FSC)", link: "", host: "Yaspresnas", bidang: "Kimia", hasil: "Coming Soon" },
+        { nama: "Future Science Competition (FSC)", link: "", host: "Yaspresnas", bidang: "Informatika", hasil: "Coming Soon" },
+        { nama: "Generasi Unggul Dalam Akademik (GARUDA)", link: "", host: "Lembaga Olimpiade Nasional", bidang: "Matematika", hasil: "Coming Soon" },
+        { nama: "Generasi Unggul Dalam Akademik (GARUDA)", link: "", host: "Lembaga Olimpiade Nasional", bidang: "Akuntansi", hasil: "Coming Soon" },
+        { nama: "Generasi Unggul Dalam Akademik (GARUDA)", link: "", host: "Lembaga Olimpiade Nasional", bidang: "Geografi", hasil: "Coming Soon" },
+        { nama: "Generasi Unggul Dalam Akademik (GARUDA)", link: "", host: "Lembaga Olimpiade Nasional", bidang: "Informatika", hasil: "Coming Soon" },
+        { nama: "Prestasi Tambahan Nasional", link: "", host: "Lembaga Terkait", bidang: "Umum", hasil: "Coming Soon" }
     ];
 
     const tbody = document.getElementById('prestasi-body');
     dataPrestasi.forEach((item, index) => {
         const isComing = item.hasil === "Coming Soon";
+        const hasLink = item.link !== "";
+        
+        // Pilih class berdasarkan ada link atau tidak
+        const titleHTML = hasLink 
+            ? `<a href="${item.link}" target="_blank" class="link-aktif">${item.nama}</a>`
+            : `<span class="tanpa-link">${item.nama}</span>`;
+
         const row = `
             <tr>
                 <td style="text-align: center; font-weight: bold;">${index + 1}</td>
                 <td>
-                    <a href="${item.link}" target="_blank" class="nama-lomba">${item.nama}</a>
+                    ${titleHTML}
                     <div class="detail-text">
                         Penyelenggara: <strong>${item.host}</strong><br>
                         Bidang: <strong>${item.bidang}</strong><br>
