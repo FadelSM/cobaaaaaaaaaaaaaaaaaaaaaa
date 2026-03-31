@@ -163,18 +163,35 @@
 </div>
 
 <script>
-    // Data Prestasi Fadel - Menggunakan data dari sertifikat asli RSCI
     const dataPrestasi = [
         { 
             nama: "RAMADHAN SCIENCE COMPETITION INDONESIA (RSCI) 2026", 
-            link: "https://drive.google.com/file/d/1eztmI8LVAH0UOV_WnVB1RjkLmjBTwiT1/view?usp=drive_link", // Link ke file asli
+            link: "https://drive.google.com/file/d/1eztmI8LVAH0UOV_WnVB1RjkLmjBTwiT1/view?usp=drive_link", 
             host: "Festival Olimpiade Sains Nasional (FOSNAS)", 
             bidang: "Informatika", 
-            hasil: "Peraih Medali Emas (Predikat A+)" 
+            hasil: "Peraih Medali Emas (Predikat A+) [cite: 7, 8, 11]" 
         },
-        { nama: "Semarak Sains Nasional (SSN)", link: "https://app.puskanas.id/#piaghappyT2F4OHBGaW54UHhKNzYxY05aMG1HUT09", host: "Gemanesia / Puskanas", bidang: "Ekonomi", hasil: "Medali Emas" },
-        { nama: "Semarak Sains Nasional (SSN)", link: "https://app.puskanas.id/#piaghappyMWplSVc3MXFyRUpPdm9LZGJ2NGlTUT09", host: "Gemanesia / Puskanas", bidang: "Ppkn", hasil: "Medali Emas" },
-        { nama: "Semarak Sains Nasional (SSN)", link: "https://app.puskanas.id/#piaghappyU0MydjhYM2p3ZDhPM2N6eGpOUFp1QT09", host: "Gemanesia / Puskanas", bidang: "Informatika", hasil: "Medali Emas" },
+        { 
+            nama: "Semarak Sains Nasional (SSN)", 
+            link: "https://drive.google.com/file/d/1v58B5tH77Xg1-r8Y927uW1j7y_L6E_3D/view?usp=drive_link", 
+            host: "Gemanesia / Puskanas", 
+            bidang: "Ekonomi", 
+            hasil: "Medali Emas" 
+        },
+        { 
+            nama: "Semarak Sains Nasional (SSN)", 
+            link: "https://drive.google.com/file/d/1v58B5tH77Xg1-r8Y927uW1j7y_L6E_3D/view?usp=drive_link", 
+            host: "Gemanesia / Puskanas", 
+            bidang: "Ppkn", 
+            hasil: "Medali Emas" 
+        },
+        { 
+            nama: "Semarak Sains Nasional (SSN)", 
+            link: "https://drive.google.com/file/d/1v58B5tH77Xg1-r8Y927uW1j7y_L6E_3D/view?usp=drive_link", 
+            host: "Gemanesia / Puskanas", 
+            bidang: "Informatika", 
+            hasil: "Medali Emas" 
+        },
         { nama: "National Science Competition (NSC)", link: "", host: "Puskanas", bidang: "Ppkn", hasil: "Medali Emas" },
         { nama: "National Science Competition (NSC)", link: "", host: "Puskanas", bidang: "Informatika", hasil: "Medali Emas" },
         { nama: "Olimpiade Sains Muda Indonesia (OSMI)", link: "", host: "Muda Sains Nasional", bidang: "Ekonomi", hasil: "Medali Perak" },
@@ -202,11 +219,9 @@
         });
     }
 
-    // Hitung total sertifikat ber-link
     document.getElementById('count-web-link').innerText = dataPrestasi.filter(i => i.link !== "").length;
     render(dataPrestasi);
 
-    // Filter Pencarian
     document.getElementById('search-input').addEventListener('input', (e) => {
         const val = e.target.value.toLowerCase();
         render(dataPrestasi.filter(i => 
@@ -216,7 +231,6 @@
         ));
     });
 
-    // Animasi Muncul
     window.onload = () => document.querySelector('.container').classList.add('visible');
 </script>
 </body>
