@@ -1,245 +1,219 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portofolio Prestasi Fadel Shafwan Maliki</title>
-<style>
-    :root {
-        --primary-color: #4b0082;
-        --secondary-color: #f4f0fa;
-        --text-color: #333;
-        --bg-color: #f0f2f5;
-        --border-color: #ddd;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prestasi Fadel Shafwan Maliki</title>
+    <style>
+        :root {
+            --bg: #0f172a;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --primary: #818cf8;
+            --accent: #c084fc;
+            --text: #f8fafc;
+        }
 
-    body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background-color: var(--bg-color);
-        margin: 0;
-        padding: 10px;
-        color: var(--text-color);
-    }
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg);
+            background-image: radial-gradient(circle at top right, #1e1b4b, #0f172a);
+            color: var(--text);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
 
-    .container {
-        max-width: 850px;
-        margin: 15px auto;
-        padding: 25px;
-        background-color: #fff;
-        border-radius: 16px;
-        box-shadow: 0 5px 25px rgba(0,0,0,0.1);
-        opacity: 0;
-        transform: translateY(20px);
-        transition: all 0.7s ease-out;
-    }
-    .container.visible { opacity: 1; transform: translateY(0); }
-    
-    .header-group {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 15px;
-    }
-    h1 { color: var(--primary-color); margin: 0; font-size: 1.8rem; }
-    
-    .btn-print {
-        background-color: var(--primary-color);
-        color: white;
-        border: none;
-        padding: 10px 18px;
-        border-radius: 8px;
-        cursor: pointer;
-        font-weight: bold;
-        transition: 0.2s;
-        text-decoration: none;
-        display: inline-flex;
-        align-items: center;
-    }
-    .btn-print:hover { background-color: #3a0066; transform: scale(1.05); }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
 
-    h2 { color: var(--primary-color); border-left: 5px solid var(--primary-color); padding-left: 12px; margin-top: 30px; font-size: 1.4rem; }
+        header {
+            text-align: center;
+            padding: 40px 0;
+        }
 
-    .summary-box {
-        background: var(--secondary-color);
-        padding: 18px;
-        border-radius: 12px;
-        border: 2px solid var(--primary-color);
-        margin: 25px 0;
-        text-align: center;
-    }
-    .summary-count { display: block; font-size: 2.5rem; font-weight: bold; color: var(--primary-color); }
-    .summary-label { font-size: 0.95rem; color: #555; font-weight: bold; }
+        h1 {
+            font-size: 2.5rem;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
 
-    .search-group { margin: 20px 0; position: relative; }
-    .search-input {
-        width: 100%;
-        padding: 12px 12px 12px 40px;
-        border: 2px solid var(--border-color);
-        border-radius: 8px;
-        font-size: 0.95rem;
-        box-sizing: border-box;
-    }
-    .search-input:focus { border-color: var(--primary-color); outline: none; }
-    .search-icon { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: #888; }
+        .profile-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 25px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
 
-    table { 
-        width: 100%; 
-        border-collapse: collapse; 
-        margin-top: 10px; 
-        border: 2px solid var(--primary-color);
-        border-radius: 8px;
-        overflow: hidden;
-    }
-    table th { background-color: var(--primary-color); color: white; padding: 14px; }
-    table td { border-bottom: 1px solid var(--border-color); padding: 15px; vertical-align: top; transition: 0.2s; }
-    table tbody tr:hover { background-color: #fcfaff; transform: translateX(5px); }
-    table tbody tr:nth-child(even) { background-color: #fbf9ff; }
+        .info-item span {
+            display: block;
+            font-size: 0.8rem;
+            color: #94a3b8;
+            text-transform: uppercase;
+        }
 
-    .link-aktif { font-weight: bold; color: var(--primary-color); text-decoration: underline; display: block; margin-bottom: 7px; }
-    .tanpa-link { font-weight: bold; color: #777; display: block; margin-bottom: 7px; }
+        .info-item p {
+            margin: 0;
+            font-weight: 600;
+        }
 
-    .status-badge { 
-        display: inline-block; padding: 4px 12px; border-radius: 6px; font-weight: bold; font-size: 0.8rem;
-        background: #e6d9f5; color: var(--primary-color); border: 1px solid #d1bdf0;
-    }
-    .coming-soon { color: #888; font-style: italic; background: #eee; border: 1px solid #ddd; }
+        .grid-prestasi {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
 
-    .btn-ig { color: #fff; background: var(--primary-color); padding: 5px 14px; border-radius: 8px; text-decoration: none; font-size: 0.9rem; }
+        .card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
 
-    footer { text-align: center; margin-top: 20px; padding-top: 20px; border-top: 1px solid #eee; font-size: 0.9rem; color: var(--primary-color); font-weight: bold; }
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
 
-    @media print {
-        .btn-print, .search-group, .summary-box, .btn-ig { display: none !important; }
-        body { background: white; padding: 0; }
-        .container { box-shadow: none; margin: 0; padding: 0; opacity: 1 !important; transform: none !important; }
-        table { border: 1px solid black !important; }
-        table th { background-color: #eee !important; color: black !important; border: 1px solid black; }
-        table td { border: 1px solid black !important; }
-        .status-badge { border: 1px solid black !important; background: none !important; color: black !important; }
-    }
-</style>
+        .badge {
+            font-size: 0.7rem;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-weight: bold;
+            background: var(--primary);
+            color: #fff;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        .medal-gold { background: linear-gradient(45deg, #fbbf24, #d97706); }
+        .medal-silver { background: linear-gradient(45deg, #94a3b8, #475569); }
+        .coming { background: #334155; }
+
+        .card h3 {
+            margin: 10px 0;
+            font-size: 1.1rem;
+            color: var(--primary);
+        }
+
+        .card p {
+            font-size: 0.85rem;
+            margin: 5px 0;
+            color: #cbd5e1;
+        }
+
+        .link-btn {
+            display: inline-block;
+            margin-top: 15px;
+            font-size: 0.8rem;
+            color: var(--accent);
+            text-decoration: none;
+            border: 1px solid var(--accent);
+            padding: 5px 12px;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .link-btn:hover {
+            background: var(--accent);
+            color: white;
+        }
+
+        .stats {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #94a3b8;
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 1.8rem; }
+        }
+    </style>
 </head>
 <body>
 
 <div class="container">
-    <div class="header-group">
-        <h1>Portofolio Prestasi Siswa</h1>
-        <button onclick="window.print()" class="btn-print">Cetak / Simpan PDF</button>
+    <header>
+        <h1>Academic Portfolio</h1>
+        <p>Fadel Shafwan Maliki • Kelas X.4</p>
+    </header>
+
+    <div class="profile-card">
+        <div class="info-item">
+            <span>Asal Sekolah</span>
+            <p>SMAS PGRI 3 Jakarta</p>
+        </div>
+        <div class="info-item">
+            <span>Ekskul</span>
+            <p>Bulu Tangkis (A-14)</p>
+        </div>
+        <div class="info-item">
+            <span>Instagram</span>
+            <p><a href="https://instagram.com/fadelshafwanmaliki" target="_blank" style="color: var(--accent); text-decoration: none;">@fadelshafwanmaliki</a></p>
+        </div>
     </div>
 
-    <h2>Profil Lengkap</h2>
-    <ul style="list-style: none; padding: 0;">
-        <li><strong>Nama:</strong> Fadel Shafwan Maliki</li>
-        <li><strong>Sekolah:</strong> SMAS PGRI 3 Jakarta</li>
-        <li><strong>Instagram:</strong> <a href="https://www.instagram.com/fadelshafwanmaliki" target="_blank" class="btn-ig">@fadelshafwanmaliki</a></li>
-    </ul>
+    <div class="grid-prestasi" id="prestasi-container">
+        </div>
 
-    <div class="summary-box">
-        <span class="summary-count" id="count-web-link">0</span>
-        <span class="summary-label">SERTIFIKAT DIGITAL TERVERIFIKASI</span>
+    <div class="stats">
+        <p>Terakhir diperbarui: 1 April 2026 | Dokumen Akademik Terverifikasi</p>
     </div>
-
-    <h2>Daftar Kompetisi Nasional</h2>
-    <div class="search-group">
-        <span class="search-icon">🔍</span>
-        <input type="text" id="search-input" class="search-input" placeholder="Cari lomba, bidang, atau medali...">
-    </div>
-
-    <table>
-        <thead>
-            <tr>
-                <th style="width: 10%;">No</th>
-                <th style="text-align: left;">Informasi Kompetisi & Hasil</th>
-            </tr>
-        </thead>
-        <tbody id="prestasi-body"></tbody>
-    </table>
-
-    <p style="text-align: center; font-style: italic; color: #666; margin-top: 25px; font-size: 0.85rem;">
-        Catatan: Dokumen ini disusun untuk keperluan akademik.
-    </p>
-
-    <footer>Copyright &copy; 2026 FadelSM</footer>
 </div>
 
 <script>
-    const dataPrestasi = [
-        { 
-            nama: "RAMADHAN SCIENCE COMPETITION INDONESIA (RSCI) 2026", 
-            link: "https://drive.google.com/file/d/1eztmI8LVAH0UOV_WnVB1RjkLmjBTwiT1/view?usp=drive_link", 
-            host: "Festival Olimpiade Sains Nasional (FOSNAS)", 
-            bidang: "Informatika", 
-            hasil: "Peraih Medali Emas (Predikat A+)" 
-        },
-        { 
-            nama: "Semarak Sains Nasional (SSN)", 
-            link: "https://drive.google.com/file/d/1LMRLct-DOdGwMh6F1bHQMS-1yfU02pQr/view?usp=drive_link", 
-            host: "Gemanesia / Puskanas", 
-            bidang: "Ekonomi", 
-            hasil: "Medali Emas" 
-        },
-        { 
-            nama: "Semarak Sains Nasional (SSN)", 
-            link: "https://drive.google.com/file/d/1IoBjF9ho5bU-zgQRFivI_5ZNVGPF6R6I/view?usp=drive_link", 
-            host: "Gemanesia / Puskanas", 
-            bidang: "Ppkn", 
-            hasil: "Medali Emas" 
-        },
-        { 
-            nama: "Semarak Sains Nasional (SSN)", 
-            link: "https://drive.google.com/file/d/1Hd72RWn1hA8_EhKtoeVd5B4YK8XIt4w2/view?usp=drive_link", 
-            host: "Gemanesia / Puskanas", 
-            bidang: "Informatika", 
-            hasil: "Medali Emas" 
-        },
-        { nama: "National Science Competition (NSC)", link: "", host: "Puskanas", bidang: "Ppkn", hasil: "Medali Emas" },
-        { nama: "National Science Competition (NSC)", link: "", host: "Puskanas", bidang: "Informatika", hasil: "Medali Emas" },
-        { nama: "Olimpiade Sains Muda Indonesia (OSMI)", link: "", host: "Muda Sains Nasional", bidang: "Ekonomi", hasil: "Medali Perak" },
-        { nama: "Olimpiade Sains Muda Indonesia (OSMI)", link: "", host: "Muda Sains Nasional", bidang: "Informatika", hasil: "Medali Emas" },
-        { nama: "Future Science Competition (FSC)", link: "", host: "Yaspresnas", bidang: "Informatika", hasil: "Coming Soon" },
-        { nama: "Prestasi 10", link: "", host: "Penyelenggara Nasional", bidang: "Akademik", hasil: "Medali Emas" },
-        { nama: "Prestasi 11", link: "", host: "Penyelenggara Nasional", bidang: "Akademik", hasil: "Medali Emas" },
-        { nama: "Prestasi 12", link: "", host: "Penyelenggara Nasional", bidang: "Akademik", hasil: "Medali Emas" },
-        { nama: "Prestasi 13", link: "", host: "Penyelenggara Nasional", bidang: "Akademik", hasil: "Medali Emas" },
-        { nama: "Prestasi 14", link: "", host: "Penyelenggara Nasional", bidang: "Akademik", hasil: "Medali Emas" },
-        { nama: "Prestasi 15", link: "", host: "Penyelenggara Nasional", bidang: "Akademik", hasil: "Medali Emas" },
-        { nama: "Prestasi 16", link: "", host: "Penyelenggara Nasional", bidang: "Akademik", hasil: "Medali Emas" },
-        { nama: "Prestasi 17", link: "", host: "Penyelenggara Nasional", bidang: "Akademik", hasil: "Medali Emas" }
+    const data = [
+        { nama: "RSCI 2026", host: "Fosnas", bidang: "Informatika", hasil: "Medali Emas (A+)", link: "https://app.puskanas.id/#piaghappyQ0JTNVFCKzNUVVJMVjhqeWQzazF5QT09" },
+        { nama: "SSN Ekonomi", host: "Gemanesia", bidang: "Ekonomi", hasil: "Medali Emas", link: "https://app.puskanas.id/#piaghappyT2F4OHBGaW54UHhKNzYxY05aMG1HUT09" },
+        { nama: "SSN PPKN", host: "Gemanesia", bidang: "PPKN", hasil: "Medali Emas", link: "https://app.puskanas.id/#piaghappyMWplSVc3MXFyRUpPdm9LZGJ2NGlTUT09" },
+        { nama: "SSN Informatika", host: "Gemanesia", bidang: "Informatika", hasil: "Medali Emas", link: "https://app.puskanas.id/#piaghappyU0MydjhYM2p3ZDhPM2N6eGpOUFp1QT09" },
+        { nama: "NSC PPKN", host: "Puskanas", bidang: "PPKN", hasil: "Medali Emas", link: "https://app.puskanas.id" },
+        { nama: "NSC Informatika", host: "Puskanas", bidang: "Informatika", hasil: "Medali Emas", link: "https://app.puskanas.id" },
+        { nama: "OSMI Ekonomi", host: "Muda Sains Nasional", bidang: "Ekonomi", hasil: "Medali Perak", link: "#" },
+        { nama: "OSMI Informatika", host: "Muda Sains Nasional", bidang: "Informatika", hasil: "Medali Emas", link: "#" },
+        { nama: "FSC Bahasa Indonesia", host: "Yaspresnas", bidang: "B. Indonesia", hasil: "Coming Soon", link: "" },
+        { nama: "FSC Bahasa Inggris", host: "Yaspresnas", bidang: "B. Inggris", hasil: "Coming Soon", link: "" },
+        { nama: "FSC Matematika", host: "Yaspresnas", bidang: "Matematika", hasil: "Coming Soon", link: "" },
+        { nama: "FSC Kimia", host: "Yaspresnas", bidang: "Kimia", hasil: "Coming Soon", link: "" },
+        { nama: "FSC Informatika", host: "Yaspresnas", bidang: "Informatika", hasil: "Coming Soon", link: "" },
+        { nama: "GARUDA Matematika", host: "Lembaga Olimpiade", bidang: "Matematika", hasil: "Coming Soon", link: "" },
+        { nama: "GARUDA Akuntansi", host: "Lembaga Olimpiade", bidang: "Akuntansi", hasil: "Coming Soon", link: "" },
+        { nama: "GARUDA Geografi", host: "Lembaga Olimpiade", bidang: "Geografi", hasil: "Coming Soon", link: "" },
+        { nama: "GARUDA Informatika", host: "Lembaga Olimpiade", bidang: "Informatika", hasil: "Coming Soon", link: "" },
+        { nama: "Tambahan Nasional", host: "Lembaga Terkait", bidang: "Umum", hasil: "Coming Soon", link: "" }
     ];
 
-    const tbody = document.getElementById('prestasi-body');
-    function render(data) {
-        tbody.innerHTML = '';
-        data.forEach((item, index) => {
-            const hasLink = item.link !== "";
-            tbody.innerHTML += `
-                <tr>
-                    <td style="text-align: center; font-weight: bold;">${index + 1}</td>
-                    <td>
-                        ${hasLink ? `<a href="${item.link}" target="_blank" class="link-aktif">${item.nama}</a>` : `<span class="tanpa-link">${item.nama}</span>`}
-                        <div style="font-size: 0.85rem; color: #555;">
-                            <b>Penyelenggara:</b> ${item.host}<br>
-                            <b>Bidang:</b> ${item.bidang}<br>
-                            <span class="status-badge ${item.hasil === 'Coming Soon' ? 'coming-soon' : ''}">${item.hasil}</span>
-                        </div>
-                    </td>
-                </tr>`;
-        });
-    }
+    const container = document.getElementById('prestasi-container');
 
-    document.getElementById('count-web-link').innerText = dataPrestasi.filter(i => i.link !== "").length;
-    render(dataPrestasi);
+    data.forEach(item => {
+        let medalClass = 'coming';
+        if(item.hasil.includes('Emas')) medalClass = 'medal-gold';
+        if(item.hasil.includes('Perak')) medalClass = 'medal-silver';
 
-    document.getElementById('search-input').addEventListener('input', (e) => {
-        const val = e.target.value.toLowerCase();
-        render(dataPrestasi.filter(i => 
-            i.nama.toLowerCase().includes(val) || 
-            i.bidang.toLowerCase().includes(val) || 
-            i.hasil.toLowerCase().includes(val)
-        ));
+        container.innerHTML += `
+            <div class="card">
+                <span class="badge ${medalClass}">${item.hasil}</span>
+                <h3>${item.nama}</h3>
+                <p><strong>Penyelenggara:</strong> ${item.host}</p>
+                <p><strong>Bidang:</strong> ${item.bidang}</p>
+                ${item.link ? `<a href="${item.link}" target="_blank" class="link-btn">Lihat Sertifikat</a>` : ''}
+            </div>
+        `;
     });
-
-    window.onload = () => document.querySelector('.container').classList.add('visible');
 </script>
+
 </body>
 </html>
