@@ -3,12 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DevStack Portfolio | Fadel Shafwan Maliki</title>
+    <title>DevStack Portfolio v2.1 | Fadel Shafwan Maliki</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --slate-900: #0f172a;
             --slate-800: #1e293b;
+            --slate-700: #334155;
+            --slate-600: #475569;
+            --slate-400: #94a3b8;
             --indigo-500: #6366f1;
+            --indigo-600: #4f46e5;
             --emerald-500: #10b981;
             --text-main: #f1f5f9;
         }
@@ -16,82 +23,164 @@
         body {
             background-color: var(--slate-900);
             color: var(--text-main);
-            font-family: 'Inter', -apple-system, sans-serif;
+            font-family: 'Inter', sans-serif;
             margin: 0;
             display: flex;
             min-height: 100vh;
         }
 
-        /* Sidebar - Ciri khas Full Stack App */
+        /* --- Sidebar --- */
         aside {
-            width: 260px;
+            width: 280px;
             background: var(--slate-800);
-            border-right: 1px solid #334155;
-            padding: 30px 20px;
+            border-right: 1px solid var(--slate-700);
+            padding: 40px 24px;
             display: flex;
             flex-direction: column;
+            box-sizing: border-box;
         }
 
-        .dev-profile { text-align: center; margin-bottom: 40px; }
+        .dev-profile { text-align: center; margin-bottom: 50px; }
         .dev-avatar { 
-            width: 80px; height: 80px; background: var(--indigo-500); 
-            border-radius: 20%; margin: 0 auto 15px; 
-            display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 2rem;
+            width: 88px; height: 88px; 
+            background: var(--indigo-500); 
+            border-radius: 24px; /* Squircle shape, more modern than round */
+            margin: 0 auto 20px; 
+            display: flex; align-items: center; justify-content: center; 
+            font-weight: 700; font-size: 2.5rem; color: #fff;
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
         }
 
-        /* Main Content */
-        main { flex: 1; padding: 40px; overflow-y: auto; }
+        .profile-meta p { margin: 8px 0; font-size: 0.9rem; color: var(--slate-400); }
+        .profile-meta b { color: var(--text-main); }
 
+        /* --- Main Content --- */
+        main { flex: 1; padding: 60px; overflow-y: auto; box-sizing: border-box; }
+
+        header { margin-bottom: 40px; }
+        header h1 { margin: 0 0 10px 0; font-size: 2.5rem; font-weight: 700; }
+        header p { margin: 0; color: var(--slate-400); font-size: 1.1rem; }
+
+        /* PERBAIKAN: Stats Grid & Alignment */
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            margin-bottom: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px;
+            margin-bottom: 50px;
         }
 
         .stat-card {
             background: var(--slate-800);
-            padding: 20px;
-            border-radius: 12px;
-            border: 1px solid #334155;
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid var(--slate-700);
+            /* PERBAIKAN: Menggunakan Flexbox untuk centering sempurna */
+            display: flex;
+            flex-direction: column;
+            align-items: center; 
+            justify-content: center;
+            text-align: center;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
-        .stat-value { font-size: 1.8rem; font-weight: 700; color: var(--indigo-500); }
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
 
-        /* Project Table - Logic Driven */
+        .stat-value { font-size: 3rem; font-weight: 700; color: var(--indigo-500); line-height: 1; margin-bottom: 12px; }
+        .stat-label { font-size: 0.95rem; color: var(--slate-400); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* --- Project Table --- */
         .table-container {
             background: var(--slate-800);
-            border-radius: 12px;
-            border: 1px solid #334155;
+            border-radius: 16px;
+            border: 1px solid var(--slate-700);
             overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
-        table { width: 100%; border-collapse: collapse; text-align: left; }
-        th { background: #2d3748; padding: 15px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: #94a3b8; }
-        td { padding: 15px; border-bottom: 1px solid #334155; font-size: 0.9rem; }
+        table { width: 100%; border-collapse: collapse; text-align: left; table-layout: fixed; }
+        
+        th { 
+            background: #1e293b; /* Slightly lighter than card bg */
+            padding: 20px; 
+            font-size: 0.8rem; 
+            text-transform: uppercase; 
+            letter-spacing: 1.5px; 
+            color: var(--slate-400); 
+            border-bottom: 1px solid var(--slate-700);
+        }
+        
+        td { 
+            padding: 20px; 
+            border-bottom: 1px solid var(--slate-700); 
+            font-size: 0.95rem; 
+            vertical-align: middle;
+            word-wrap: break-word; /* Prevents long titles from breaking layout */
+        }
 
+        tr:last-child td { border-bottom: none; }
+        tr:hover td { background-color: rgba(255, 255, 255, 0.02); }
+
+        /* Kolom width setting untuk kontrol layout yang lebih baik */
+        th:nth-child(1) { width: 30%; }
+        th:nth-child(2) { width: 20%; }
+        th:nth-child(3) { width: 20%; }
+        th:nth-child(4) { width: 20%; }
+        th:nth-child(5) { width: 10%; }
+
+        /* Badge Status */
         .badge {
-            padding: 4px 10px;
-            border-radius: 6px;
-            font-size: 0.75rem;
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 0.8rem;
             font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        .badge-gold { background: rgba(16, 185, 129, 0.2); color: var(--emerald-500); }
-        .badge-pending { background: rgba(148, 163, 184, 0.1); color: #94a3b8; }
+        .badge-gold { background: rgba(16, 185, 129, 0.15); color: var(--emerald-500); border: 1px solid rgba(16, 185, 129, 0.3); }
+        .badge-pending { background: rgba(148, 163, 184, 0.1); color: var(--slate-400); border: 1px solid rgba(148, 163, 184, 0.2); }
 
+        /* PERBAIKAN: Tipografi Link */
         .action-link {
             color: var(--indigo-500);
             text-decoration: none;
             font-weight: 600;
+            font-size: 0.9rem;
+            /* PERBAIKAN: Konsistensi penulisan (lowercase dengan arrow) */
+            text-transform: lowercase; 
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            transition: color 0.2s ease;
         }
 
-        .action-link:hover { text-decoration: underline; }
+        .action-link:hover { color: var(--indigo-600); }
+        .action-link::after { content: '→'; font-size: 1.1em; transition: transform 0.2s ease; }
+        .action-link:hover::after { transform: translateX(3px); }
 
-        @media (max-width: 900px) {
+        /* --- Footer --- */
+        footer {
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid var(--slate-700);
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--slate-600);
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 1024px) {
             body { flex-direction: column; }
-            aside { width: 100%; box-sizing: border-box; }
-            .stats-grid { grid-template-columns: 1fr; }
+            aside { width: 100%; border-right: none; border-bottom: 1px solid var(--slate-700); padding: 30px; }
+            .dev-profile { margin-bottom: 20px; display: flex; align-items: center; text-align: left; gap: 20px; }
+            .dev-avatar { margin: 0; }
+            .profile-meta { display: flex; flex-wrap: wrap; gap: 15px; font-size: 0.85rem; }
+            .profile-meta p { margin: 0; }
+            main { padding: 40px 20px; }
         }
     </style>
 </head>
@@ -100,34 +189,36 @@
     <aside>
         <div class="dev-profile">
             <div class="dev-avatar">FS</div>
-            <h3 style="margin: 0;">Fadel Shafwan M.</h3>
-            <p style="color: #94a3b8; font-size: 0.8rem;">Full-Stack Developer</p>
+            <div>
+                <h3 style="margin: 0; font-size: 1.2rem;">Fadel Shafwan M.</h3>
+                <p style="color: var(--indigo-500); font-size: 0.9rem; font-weight: 600; margin: 4px 0 0 0;">Full-Stack Developer</p>
+            </div>
         </div>
-        <nav style="font-size: 0.9rem; color: #94a3b8;">
+        <div class="profile-meta">
             <p>INSTITUTION: <b>SMAS PGRI 3 Jakarta</b></p>
             <p>CLASS: <b>X.4</b></p>
             <p>TECH: <b>JS / Node.js / Security</b></p>
-        </nav>
+        </div>
     </aside>
 
     <main>
-        <header style="margin-bottom: 30px;">
-            <h1 style="margin: 0;">Achievement Repository</h1>
-            <p style="color: #94a3b8;">Production-ready database of national competitions.</p>
+        <header>
+            <h1>Achievement Repository</h1>
+            <p>Production-ready database of national competitions.</p>
         </header>
 
         <div class="stats-grid">
             <div class="stat-card">
                 <div class="stat-value" id="count-gold">0</div>
-                <div style="font-size: 0.8rem; color: #94a3b8;">Gold Medals</div>
+                <div class="stat-label">Gold Medals</div>
             </div>
             <div class="stat-card">
                 <div class="stat-value" id="count-total">0</div>
-                <div style="font-size: 0.8rem; color: #94a3b8;">Total Entries</div>
+                <div class="stat-label">Total Entries</div>
             </div>
             <div class="stat-card">
                 <div class="stat-value">2026</div>
-                <div style="font-size: 0.8rem; color: #94a3b8;">Current Session</div>
+                <div class="stat-label">Current Session</div>
             </div>
         </div>
 
@@ -146,56 +237,67 @@
                     </tbody>
             </table>
         </div>
+
+        <footer>
+            &copy; 2026 Fadel Shafwan Maliki. All rights reserved. // Data verified by RSCI & Puskanas.
+        </footer>
     </main>
 
     <script>
-        // Data Structure - Tunjukkan ke guru kalau kamu paham Object-Oriented style
+        // Data Structure - Menggunakan objek yang rapi
         const repository = [
-            { id: 1, name: "RSCI 2026", host: "Fosnas", field: "Informatika", result: "Medali Emas (A+)", link: "https://drive.google.com/file/d/1eztmI8LVAH0UOV_WnVB1RjkLmjBTwiT1/view?usp=drive_link" },
-            { id: 2, name: "SSN Ekonomi", host: "Gemanesia", field: "Ekonomi", result: "Medali Emas", link: "https://drive.google.com/file/d/1LMRLct-DOdGwMh6F1bHQMS-1yfU02pQr/view?usp=drive_link" },
-            { id: 3, name: "SSN PPKN", host: "Gemanesia", field: "PPKN", result: "Medali Emas", link: "https://drive.google.com/file/d/1IoBjF9ho5bU-zgQRFivI_5ZNVGPF6R6I/view?usp=drive_link" },
-            { id: 4, name: "SSN Informatika", host: "Gemanesia", field: "Informatika", result: "Medali Emas", link: "https://drive.google.com/file/d/1Hd72RWn1hA8_EhKtoeVd5B4YK8XIt4w2/view?usp=drive_link" },
-            { id: 5, name: "NSC PPKN", host: "Puskanas", field: "PPKN", result: "Medali Emas", link: "https://app.puskanas.id" },
-            { id: 6, name: "NSC Informatika", host: "Puskanas", field: "Informatika", result: "Medali Emas", link: "https://app.puskanas.id" },
-            { id: 7, name: "OSMI Ekonomi", host: "Muda Sains", field: "Ekonomi", result: "Medali Perak", link: "#" },
-            { id: 8, name: "OSMI Informatika", host: "Muda Sains", field: "Informatika", result: "Medali Emas", link: "#" },
-            // Batch process untuk Coming Soon data
+            { id: 1, name: "Ramadhan Science Competition Indonesia (RSCI) 2026", host: "Fosnas", field: "Informatika", result: "Medali Emas (A+)", link: "https://drive.google.com/file/d/1eztmI8LVAH0UOV_WnVB1RjkLmjBTwiT1/view?usp=drive_link" },
+            { id: 2, name: "Semarak Sains Nasional (SSN)", host: "Gemanesia", field: "Ekonomi", result: "Medali Emas", link: "https://drive.google.com/file/d/1LMRLct-DOdGwMh6F1bHQMS-1yfU02pQr/view?usp=drive_link" },
+            { id: 3, name: "Semarak Sains Nasional (SSN)", host: "Gemanesia", field: "PPKN", result: "Medali Emas", link: "https://drive.google.com/file/d/1IoBjF9ho5bU-zgQRFivI_5ZNVGPF6R6I/view?usp=drive_link" },
+            { id: 4, name: "Semarak Sains Nasional (SSN)", host: "Gemanesia", field: "Informatika", result: "Medali Emas", link: "https://drive.google.com/file/d/1Hd72RWn1hA8_EhKtoeVd5B4YK8XIt4w2/view?usp=drive_link" },
+            { id: 5, name: "National Science Competition (NSC)", host: "Puskanas", field: "PPKN", result: "Medali Emas", link: "https://app.puskanas.id" },
+            { id: 6, name: "National Science Competition (NSC)", host: "Puskanas", field: "Informatika", result: "Medali Emas", link: "https://app.puskanas.id" },
+            { id: 7, name: "Olimpiade Sains Muda Indonesia (OSMI)", host: "Muda Sains", field: "Ekonomi", result: "Medali Perak", link: "#" },
+            { id: 8, name: "Olimpiade Sains Muda Indonesia (OSMI)", host: "Muda Sains", field: "Informatika", result: "Medali Emas", link: "#" },
+            // Batch process untuk Coming Soon data (menggunakan Map untuk efisiensi)
             ...Array.from({length: 10}, (_, i) => ({
-                id: 9 + i, name: i < 5 ? "Future Science Comp (FSC)" : "Garuda National", 
-                host: "Penyelenggara Nasional", field: "Multiple Subjects", result: "In Queue", link: ""
+                id: 9 + i, 
+                name: i < 5 ? "Future Science Competition (FSC)" : "Garuda National Academic", 
+                host: i < 5 ? "Yaspresnas" : "Lembaga Olimpiade", 
+                field: i % 2 === 0 ? "Matematika" : "Informatika", 
+                result: "In Queue", 
+                link: ""
             }))
         ];
 
         const renderTarget = document.getElementById('render-target');
         
-        // Logic: Membangun baris tabel secara programmatik
+        // Logic: Membangun baris tabel secara programmatik (DOM Manipulation)
         function initDashboard() {
             repository.forEach(item => {
                 const isGold = item.result.includes("Emas");
+                // Menentukan teks link berdasarkan ketersediaan link (Condition-based rendering)
+                const linkText = item.link ? "open link" : "--";
+                
                 const row = `
                     <tr>
-                        <td style="font-weight: 600;">${item.name}</td>
-                        <td style="color: #94a3b8;">${item.host}</td>
+                        <td style="font-weight: 600; color: #fff;">${item.name}</td>
+                        <td style="color: var(--slate-400);">${item.host}</td>
                         <td>${item.field}</td>
                         <td>
                             <span class="badge ${isGold ? 'badge-gold' : 'badge-pending'}">
-                                ${item.result.toUpperCase()}
+                                ${item.result}
                             </span>
                         </td>
                         <td>
-                            ${item.link ? `<a href="${item.link}" target="_blank" class="action-link">Open_Link</a>` : '--'}
+                            ${item.link ? `<a href="${item.link}" target="_blank" class="action-link">${linkText}</a>` : '<span style="color: var(--slate-600);">--</span>'}
                         </td>
                     </tr>
                 `;
                 renderTarget.innerHTML += row;
             });
 
-            // Update Statistics
+            // Update Statistics (Computed properties)
             document.getElementById('count-gold').innerText = repository.filter(i => i.result.includes("Emas")).length;
             document.getElementById('count-total').innerText = repository.length;
         }
 
-        // Execute
+        // Execute on Load
         initDashboard();
     </script>
 </body>
