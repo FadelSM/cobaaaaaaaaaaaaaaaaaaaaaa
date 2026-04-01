@@ -2,235 +2,190 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dossier Prestasi | Fadel Shafwan Maliki</title>
+    <title>Zive Archive | Fadel Shafwan Maliki</title>
     <style>
-        /* Desain ini menggunakan konsep Industrial-Cyber yang sangat spesifik */
+        /* Konsep: Terminal Linux / Debugger Console */
         :root {
-            --neon-blue: #00f2ff;
-            --dark-space: #05070a;
-            --surface: #0d1117;
-            --border: #1f2937;
-            --text-main: #e5e7eb;
+            --term-green: #00ff41;
+            --term-bg: #0a0a0a;
+            --term-dim: #008f11;
+            --border-clr: #333;
         }
 
         body {
-            background-color: var(--dark-space);
-            color: var(--text-main);
-            font-family: 'JetBrains Mono', 'Fira Code', monospace; /* Font programming agar terlihat otentik */
+            background-color: var(--term-bg);
+            color: var(--term-green);
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            padding: 30px;
             margin: 0;
-            padding: 20px;
-            background-image: 
-                linear-gradient(rgba(0, 242, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 242, 255, 0.03) 1px, transparent 1px);
-            background-size: 30px 30px;
+            line-height: 1.4;
         }
 
-        .main-frame {
-            max-width: 1100px;
+        .terminal-window {
+            max-width: 1200px;
             margin: 0 auto;
-            border: 1px solid var(--border);
-            background: var(--surface);
-            position: relative;
-            box-shadow: 0 0 50px rgba(0,0,0,0.5);
+            border: 1px solid var(--border-clr);
+            background: #000;
+            box-shadow: 0 0 20px rgba(0,0,0,0.8);
         }
 
-        /* Dekorasi sudut agar terlihat seperti sistem militer/keamanan */
-        .main-frame::before {
-            content: "ID: FADEL_SHAFWAN_MALIKI // CLASS: X.4";
-            position: absolute;
-            top: -25px;
-            left: 10px;
-            font-size: 10px;
-            color: var(--neon-blue);
-            letter-spacing: 2px;
-        }
-
-        header {
-            padding: 40px;
-            border-bottom: 1px solid var(--border);
+        /* Top Bar ala OS Linux */
+        .window-header {
+            background: #222;
+            padding: 8px 15px;
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .title-block h1 {
-            margin: 0;
-            font-size: 2.2rem;
-            text-transform: uppercase;
-            letter-spacing: -1px;
-            color: #fff;
-            text-shadow: 2px 2px 0px var(--neon-blue);
-        }
-
-        .profile-status {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
             font-size: 12px;
+            color: #aaa;
+            border-bottom: 1px solid var(--border-clr);
         }
 
-        .status-box {
-            border-left: 2px solid var(--neon-blue);
-            padding-left: 10px;
-        }
+        .content { padding: 40px; }
 
-        .status-box label { color: #6b7280; display: block; margin-bottom: 3px; }
+        header { margin-bottom: 50px; border-bottom: 1px dashed var(--term-dim); padding-bottom: 20px; }
 
-        /* Grid Prestasi yang Unik */
-        .achievement-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 1px; /* Membuat garis antar kotak */
-            background-color: var(--border);
-        }
+        h1 { margin: 0; font-size: 24px; text-transform: uppercase; }
+        .meta { font-size: 14px; color: var(--term-dim); }
 
-        .ach-card {
-            background: var(--surface);
-            padding: 25px;
-            transition: 0.3s;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .ach-card:hover {
-            background: #111827;
-            box-shadow: inset 0 0 20px rgba(0, 242, 255, 0.1);
-        }
-
-        .ach-tag {
-            font-size: 10px;
-            font-weight: bold;
-            padding: 2px 8px;
-            border: 1px solid;
-            width: fit-content;
-            margin-bottom: 15px;
-        }
-
-        .tag-gold { color: #ffd700; border-color: #ffd700; }
-        .tag-silver { color: #9ca3af; border-color: #9ca3af; }
-        .tag-process { color: #3b82f6; border-color: #3b82f6; }
-
-        .ach-card h3 {
-            margin: 0 0 10px 0;
-            font-size: 1.1rem;
-            line-height: 1.3;
-        }
-
-        .ach-card p {
-            margin: 0;
-            font-size: 0.85rem;
-            color: #9ca3af;
-        }
-
-        .cert-link {
+        /* Grid Data - Menghilangkan kesan card AI yang kaku */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
             margin-top: 20px;
-            color: var(--neon-blue);
-            text-decoration: none;
+        }
+
+        .data-table th {
+            text-align: left;
+            border-bottom: 2px solid var(--term-dim);
+            padding: 10px;
+            color: #fff;
+            font-size: 13px;
+        }
+
+        .data-table td {
+            padding: 15px 10px;
+            border-bottom: 1px solid #1a1a1a;
+            font-size: 14px;
+        }
+
+        .data-table tr:hover { background: rgba(0, 255, 65, 0.05); }
+
+        .status-pill {
             font-size: 11px;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            transition: 0.2s;
+            padding: 2px 6px;
+            border: 1px solid var(--term-green);
         }
 
-        .cert-link:hover { gap: 10px; }
+        .gold { background: var(--term-green); color: #000; font-weight: bold; }
+        .proc { color: #888; border-color: #444; }
 
-        .footer-bar {
-            padding: 15px 40px;
-            font-size: 10px;
-            color: #4b5563;
-            text-align: right;
-            border-top: 1px solid var(--border);
+        .btn-view {
+            color: var(--term-green);
+            text-decoration: none;
+            border: 1px solid var(--term-green);
+            padding: 3px 8px;
+            font-size: 11px;
         }
 
-        @media (max-width: 600px) {
-            header { padding: 20px; }
-            .title-block h1 { font-size: 1.5rem; }
+        .btn-view:hover { background: var(--term-green); color: #000; }
+
+        /* Footer Log */
+        .system-logs {
+            margin-top: 50px;
+            font-size: 12px;
+            color: var(--term-dim);
+        }
+
+        @media (max-width: 768px) {
+            .data-table thead { display: none; }
+            .data-table td { display: block; padding: 5px 10px; border: none; }
+            .data-table tr { border-bottom: 1px solid var(--border-clr); padding: 15px 0; display: block; }
         }
     </style>
 </head>
 <body>
 
-    <div class="main-frame">
+<div class="terminal-window">
+    <div class="window-header">
+        <span>root@zive:~# ./fetch_achievements.sh</span>
+        <span>255ms</span>
+    </div>
+
+    <div class="content">
         <header>
-            <div class="title-block">
-                <h1>Academic Archives</h1>
-                <p style="color: var(--neon-blue); margin: 5px 0 0 0; font-size: 12px;">PORTFOLIO.V2 // 2026</p>
-            </div>
-            
-            <div class="profile-status">
-                <div class="status-box">
-                    <label>OPERATOR</label>
-                    <p style="margin:0">Fadel Shafwan Maliki</p>
-                </div>
-                <div class="status-box">
-                    <label>INSTITUTION</label>
-                    <p style="margin:0">SMAS PGRI 3 Jakarta</p>
-                </div>
-                <div class="status-box">
-                    <label>EXTRACURRICULAR</label>
-                    <p style="margin:0">Badminton (A-14)</p>
-                </div>
-                <div class="status-box">
-                    <label>SOCIAL</label>
-                    <a href="https://instagram.com/fadelshafwanmaliki" target="_blank" style="color:inherit; text-decoration:none;">@fadelshafwanmaliki</a>
-                </div>
+            <h1>Dossier: Fadel Shafwan Maliki</h1>
+            <div class="meta">
+                ID: 11062009-X4 | SRC: SMAS PGRI 3 Jakarta | DEPT: Information Security
             </div>
         </header>
 
-        <div class="achievement-grid" id="data-sink">
-            </div>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>CODE</th>
+                    <th>COMPETITION_TITLE</th>
+                    <th>FIELD</th>
+                    <th>RESULT</th>
+                    <th>ACTION</th>
+                </tr>
+            </thead>
+            <tbody id="terminal-body">
+                </tbody>
+        </table>
 
-        <div class="footer-bar">
-            SYSTEM STATUS: SECURED // DATA VERIFIED BY RSCI & PUSKANAS // LAST UPDATE: 01-04-2026
+        <div class="system-logs">
+            [SYS_LOG] Total: 18 Entries found.<br>
+            [SYS_LOG] Authentication: Instagram @fadelshafwanmaliki<br>
+            [SYS_LOG] Status: Database Verified.
         </div>
     </div>
+</div>
 
-    <script>
-        const achievements = [
-            { title: "RSCI 2026", org: "Fosnas", field: "Informatika", status: "Gold Medalist (A+)", link: "https://drive.google.com/file/d/1eztmI8LVAH0UOV_WnVB1RjkLmjBTwiT1/view?usp=drive_link", type: "gold" },
-            { title: "SSN Ekonomi", org: "Gemanesia", field: "Ekonomi", status: "Gold Medal", link: "https://drive.google.com/file/d/1LMRLct-DOdGwMh6F1bHQMS-1yfU02pQr/view?usp=drive_link", type: "gold" },
-            { title: "SSN PPKN", org: "Gemanesia", field: "PPKN", status: "Gold Medal", link: "https://drive.google.com/file/d/1IoBjF9ho5bU-zgQRFivI_5ZNVGPF6R6I/view?usp=drive_link", type: "gold" },
-            { title: "SSN Informatika", org: "Gemanesia", field: "Informatika", status: "Gold Medal", link: "https://drive.google.com/file/d/1Hd72RWn1hA8_EhKtoeVd5B4YK8XIt4w2/view?usp=drive_link", type: "gold" },
-            { title: "NSC PPKN", org: "Puskanas", field: "PPKN", status: "Gold Medal", link: "https://app.puskanas.id", type: "gold" },
-            { title: "NSC Informatika", org: "Puskanas", field: "Informatika", status: "Gold Medal", link: "https://app.puskanas.id", type: "gold" },
-            { title: "OSMI Ekonomi", org: "Muda Sains Nasional", field: "Ekonomi", status: "Silver Medal", link: "#", type: "silver" },
-            { title: "OSMI Informatika", org: "Muda Sains Nasional", field: "Informatika", status: "Gold Medal", link: "#", type: "gold" },
-            { title: "FSC B. Indonesia", org: "Yaspresnas", field: "B. Indonesia", status: "Queue: Results", link: "", type: "process" },
-            { title: "FSC B. Inggris", org: "Yaspresnas", field: "B. Inggris", status: "Queue: Results", link: "", type: "process" },
-            { title: "FSC Matematika", org: "Yaspresnas", field: "Matematika", status: "Queue: Results", link: "", type: "process" },
-            { title: "FSC Kimia", org: "Yaspresnas", field: "Kimia", status: "Queue: Results", link: "", type: "process" },
-            { title: "FSC Informatika", org: "Yaspresnas", field: "Informatika", status: "Queue: Results", link: "", type: "process" },
-            { title: "GARUDA Matematika", org: "Lembaga Olimpiade", field: "Matematika", status: "Queue: Results", link: "", type: "process" },
-            { title: "GARUDA Akuntansi", org: "Lembaga Olimpiade", field: "Akuntansi", status: "Queue: Results", link: "", type: "process" },
-            { title: "GARUDA Geografi", org: "Lembaga Olimpiade", field: "Geografi", status: "Queue: Results", link: "", type: "process" },
-            { title: "GARUDA Informatika", org: "Lembaga Olimpiade", field: "Informatika", status: "Queue: Results", link: "", type: "process" },
-            { title: "Additional Entry", org: "National Level", field: "General", status: "Incoming", link: "", type: "process" }
-        ];
+<script>
+    const achievements = [
+        { id: "RSCI-26", name: "RSCI 2026", host: "Fosnas", field: "Informatika", res: "GOLD_MEDAL (A+)", link: "https://drive.google.com/file/d/1eztmI8LVAH0UOV_WnVB1RjkLmjBTwiT1/view?usp=drive_link" },
+        { id: "SSN-ECO", name: "SSN Ekonomi", host: "Gemanesia", field: "Ekonomi", res: "GOLD_MEDAL", link: "https://drive.google.com/file/d/1LMRLct-DOdGwMh6F1bHQMS-1yfU02pQr/view?usp=drive_link" },
+        { id: "SSN-PPK", name: "SSN PPKN", host: "Gemanesia", field: "PPKN", res: "GOLD_MEDAL", link: "https://drive.google.com/file/d/1IoBjF9ho5bU-zgQRFivI_5ZNVGPF6R6I/view?usp=drive_link" },
+        { id: "SSN-INF", name: "SSN Informatika", host: "Gemanesia", field: "Informatika", res: "GOLD_MEDAL", link: "https://drive.google.com/file/d/1Hd72RWn1hA8_EhKtoeVd5B4YK8XIt4w2/view?usp=drive_link" },
+        { id: "NSC-PPK", name: "NSC PPKN", host: "Puskanas", field: "PPKN", res: "GOLD_MEDAL", link: "https://app.puskanas.id" },
+        { id: "NSC-INF", name: "NSC Informatika", host: "Puskanas", field: "Informatika", res: "GOLD_MEDAL", link: "https://app.puskanas.id" },
+        { id: "OSMI-EC", name: "OSMI Ekonomi", host: "Muda Sains", field: "Ekonomi", res: "SILVER_MEDAL", link: "#" },
+        { id: "OSMI-IN", name: "OSMI Informatika", host: "Muda Sains", field: "Informatika", res: "GOLD_MEDAL", link: "#" },
+        { id: "FSC-ID", name: "FSC B. Indonesia", host: "Yaspresnas", field: "B. Indonesia", res: "PENDING", link: "" },
+        { id: "FSC-EN", name: "FSC B. Inggris", host: "Yaspresnas", field: "B. Inggris", res: "PENDING", link: "" },
+        { id: "FSC-MT", name: "FSC Matematika", host: "Yaspresnas", field: "Matematika", res: "PENDING", link: "" },
+        { id: "FSC-KI", name: "FSC Kimia", host: "Yaspresnas", field: "Kimia", res: "PENDING", link: "" },
+        { id: "FSC-IF", name: "FSC Informatika", host: "Yaspresnas", field: "Informatika", res: "PENDING", link: "" },
+        { id: "GRD-MT", name: "GARUDA Matematika", host: "Lembaga Olimpiade", field: "Matematika", res: "PENDING", link: "" },
+        { id: "GRD-AK", name: "GARUDA Akuntansi", host: "Lembaga Olimpiade", field: "Akuntansi", res: "PENDING", link: "" },
+        { id: "GRD-GG", name: "GARUDA Geografi", host: "Lembaga Olimpiade", field: "Geografi", res: "PENDING", link: "" },
+        { id: "GRD-IF", name: "GARUDA Informatika", host: "Lembaga Olimpiade", field: "Informatika", res: "PENDING", link: "" },
+        { id: "ADD-01", name: "Additional Entry", host: "National Level", field: "General", res: "PENDING", link: "" }
+    ];
 
-        const container = document.getElementById('data-sink');
+    const body = document.getElementById('terminal-body');
 
-        achievements.forEach(item => {
-            container.innerHTML += `
-                <div class="ach-card">
-                    <div>
-                        <div class="ach-tag tag-${item.type}">${item.status.toUpperCase()}</div>
-                        <h3>${item.title}</h3>
-                        <p>${item.org} // ${item.field}</p>
-                    </div>
-                    ${item.link ? `
-                        <a href="${item.link}" target="_blank" class="cert-link">
-                            [ VIEW_FILE ] <span>→</span>
-                        </a>
-                    ` : ''}
-                </div>
-            `;
-        });
-    </script>
+    achievements.forEach(item => {
+        const isGold = item.res.includes('GOLD');
+        const isPending = item.res === 'PENDING';
+        
+        body.innerHTML += `
+            <tr>
+                <td style="color: #666;">[${item.id}]</td>
+                <td>${item.name}</td>
+                <td style="color: var(--term-dim);">${item.field}</td>
+                <td>
+                    <span class="status-pill ${isGold ? 'gold' : (isPending ? 'proc' : '')}">
+                        ${item.res}
+                    </span>
+                </td>
+                <td>
+                    ${item.link ? `<a href="${item.link}" target="_blank" class="btn-view">GET_FILE</a>` : '--'}
+                </td>
+            </tr>
+        `;
+    });
+</script>
+
 </body>
 </html>
