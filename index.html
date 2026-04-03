@@ -22,7 +22,6 @@
             --text-main: #f1f5f9;
         }
 
-        /* Smooth Scroll & Fade Animation */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
@@ -102,12 +101,11 @@
         .stat-value { font-size: 2.5rem; font-weight: 700; color: var(--indigo-500); line-height: 1; margin-bottom: 8px; }
         .stat-label { font-size: 0.8rem; color: var(--slate-400); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
 
-        /* Fix Table Mobile: Container Scrollable */
         .table-container {
             background: var(--slate-800);
             border-radius: 16px;
             border: 1px solid var(--slate-700);
-            overflow-x: auto; /* Penting untuk mobile */
+            overflow-x: auto;
         }
 
         table { width: 100%; border-collapse: collapse; text-align: left; min-width: 600px; }
@@ -149,7 +147,6 @@
 
         footer { margin-top: 60px; padding: 20px; border-top: 1px solid var(--slate-700); text-align: center; font-size: 0.8rem; color: var(--slate-600); }
 
-        /* Mobile Optimization */
         @media (max-width: 768px) {
             body { flex-direction: column; }
             aside { width: 100%; padding: 30px 20px; border-right: none; border-bottom: 1px solid var(--slate-700); }
@@ -215,7 +212,7 @@
         </div>
 
         <footer>
-            &copy; 2026 Fadel Shafwan Maliki. Data Source: RSCI & Puskanas terverifikasi.
+            &copy; 2026 Fadel Shafwan Maliki.
         </footer>
     </main>
 
@@ -225,19 +222,19 @@
             { id: 2, name: "Semarak Sains Nasional (SSN)", host: "Gemanesia", field: "Ekonomi", result: "Medali Emas", link: "https://drive.google.com/file/d/1LMRLct-DOdGwMh6F1bHQMS-1yfU02pQr/view?usp=drive_link" },
             { id: 3, name: "Semarak Sains Nasional (SSN)", host: "Gemanesia", field: "PPKN", result: "Medali Emas", link: "https://drive.google.com/file/d/1IoBjF9ho5bU-zgQRFivI_5ZNVGPF6R6I/view?usp=drive_link" },
             { id: 4, name: "Semarak Sains Nasional (SSN)", host: "Gemanesia", field: "Informatika", result: "Medali Emas", link: "https://drive.google.com/file/d/1Hd72RWn1hA8_EhKtoeVd5B4YK8XIt4w2/view?usp=drive_link" },
-            { id: 5, name: "National Science Competition (NSC)", host: "Puskanas", field: "PPKN", result: "Medali Emas", link: "https://app.puskanas.id" },
-            { id: 6, name: "National Science Competition (NSC)", host: "Puskanas", field: "Informatika", result: "Medali Emas", link: "https://app.puskanas.id" },
+            { id: 5, name: "National Science Competition (NSC)", host: "Puskanas", field: "PPKN", result: "Medali Emas", link: "#" },
+            { id: 6, name: "National Science Competition (NSC)", host: "Puskanas", field: "Informatika", result: "Medali Emas", link: "#" },
             { id: 7, name: "Olimpiade Sains Muda Indonesia (OSMI)", host: "Muda Sains", field: "Ekonomi", result: "Medali Perak", link: "https://drive.google.com/file/d/1-VxeLUvyW2mh7JPHzt27TXE7fY9GFbKW/view?usp=drive_link" },
             { id: 8, name: "Olimpiade Sains Muda Indonesia (OSMI)", host: "Muda Sains", field: "Informatika", result: "Medali Emas", link: "https://drive.google.com/file/d/19BUdb6SMu5DhVRepPCQzS3q5NX5AH_bh/view?usp=drive_link" },
-            { id: 9, name: "Future Science Competition (FSC)", host: "Yaspresnas", field: "Bahasa Indonesia", result: "Coming Soon", link: "" },
-            { id: 10, name: "Future Science Competition (FSC)", host: "Yaspresnas", field: "Bahasa Inggris", result: "Coming Soon", link: "" },
-            { id: 11, name: "Future Science Competition (FSC)", host: "Yaspresnas", field: "Matematika", result: "Coming Soon", link: "" },
-            { id: 12, name: "Future Science Competition (FSC)", host: "Yaspresnas", field: "Kimia", result: "Coming Soon", link: "" },
-            { id: 13, name: "Future Science Competition (FSC)", host: "Yaspresnas", field: "Informatika", result: "Coming Soon", link: "" },
-            { id: 14, name: "Generasi Unggul Dalam Akademik (GARUDA)", host: "LON", field: "Matematika", result: "Coming Soon", link: "" },
-            { id: 15, name: "Generasi Unggul Dalam Akademik (GARUDA)", host: "LON", field: "Akuntansi", result: "Coming Soon", link: "" },
-            { id: 16, name: "Generasi Unggul Dalam Akademik (GARUDA)", host: "LON", field: "Geografi", result: "Coming Soon", link: "" },
-            { id: 17, name: "Generasi Unggul Dalam Akademik (GARUDA)", host: "LON", field: "Informatika", result: "Coming Soon", link: "" }
+            { id: 9, name: "Future Science Competition (FSC)", host: "Yaspresnas", field: "Bahasa Indonesia", result: "Coming Soon", link: "#" },
+            { id: 10, name: "Future Science Competition (FSC)", host: "Yaspresnas", field: "Bahasa Inggris", result: "Coming Soon", link: "#" },
+            { id: 11, name: "Future Science Competition (FSC)", host: "Yaspresnas", field: "Matematika", result: "Coming Soon", link: "#" },
+            { id: 12, name: "Future Science Competition (FSC)", host: "Yaspresnas", field: "Kimia", result: "Coming Soon", link: "#" },
+            { id: 13, name: "Future Science Competition (FSC)", host: "Yaspresnas", field: "Informatika", result: "Coming Soon", link: "#" },
+            { id: 14, name: "Generasi Unggul Dalam Akademik (GARUDA)", host: "LON", field: "Matematika", result: "Coming Soon", link: "#" },
+            { id: 15, name: "Generasi Unggul Dalam Akademik (GARUDA)", host: "LON", field: "Akuntansi", result: "Coming Soon", link: "#" },
+            { id: 16, name: "Generasi Unggul Dalam Akademik (GARUDA)", host: "LON", field: "Geografi", result: "Coming Soon", link: "#" },
+            { id: 17, name: "Generasi Unggul Dalam Akademik (GARUDA)", host: "LON", field: "Informatika", result: "Coming Soon", link: "#" }
         ];
 
         const renderTarget = document.getElementById('render-target');
