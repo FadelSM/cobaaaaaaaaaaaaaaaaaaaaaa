@@ -48,9 +48,6 @@
         }
 
         .dev-profile { text-align: center; margin-bottom: 30px; }
-        
-        .avatar-link { text-decoration: none; display: inline-block; }
-        
         .dev-avatar { 
             width: 88px; height: 88px; 
             background: var(--indigo-500); 
@@ -63,23 +60,26 @@
         }
         .dev-avatar:hover { transform: scale(1.08) rotate(5deg); }
 
-        /* Follow Button Style */
-        .btn-instagram {
+        /* Social Buttons */
+        .social-links { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
+        
+        .btn-social {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
-            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
             color: white;
             text-decoration: none;
             font-size: 0.85rem;
             font-weight: 700;
             padding: 12px;
             border-radius: 12px;
-            margin-top: 20px;
             transition: transform 0.2s, opacity 0.2s;
         }
-        .btn-instagram:hover { transform: translateY(-2px); opacity: 0.9; }
+        .btn-social:hover { transform: translateY(-2px); opacity: 0.9; }
+
+        .btn-instagram { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+        .btn-tiktok { background: #000000; border: 1px solid var(--slate-700); }
 
         .profile-meta p { margin: 15px 0; font-size: 0.85rem; color: var(--slate-400); line-height: 1.4; }
         .profile-meta b { color: var(--text-main); display: block; font-size: 0.95rem; margin-top: 4px; }
@@ -153,9 +153,7 @@
 
     <aside>
         <div class="dev-profile">
-            <a href="https://www.instagram.com/fadelshafwanmaliki" target="_blank" rel="noopener noreferrer" class="avatar-link">
-                <div class="dev-avatar">FS</div>
-            </a>
+            <div class="dev-avatar">FS</div>
             <div>
                 <h3 style="margin: 0; font-size: 1.2rem;">Fadel Shafwan M.</h3>
                 <p style="color: var(--indigo-500); font-size: 0.9rem; font-weight: 600; margin: 4px 0 0 0;">Full-Stack Developer</p>
@@ -166,9 +164,14 @@
             <p>INSTITUTION <b>SMAS PGRI 3 Jakarta</b></p>
             <p>CLASS <b>X.4</b></p>
             
-            <a href="https://www.instagram.com/fadelshafwanmaliki" target="_blank" rel="noopener noreferrer" class="btn-instagram">
-                Follow Instagram
-            </a>
+            <div class="social-links">
+                <a href="https://www.instagram.com/fadelshafwanmaliki" target="_blank" rel="noopener noreferrer" class="btn-social btn-instagram">
+                    Follow Instagram
+                </a>
+                <a href="https://www.tiktok.com/@fadelshafwan" target="_blank" rel="noopener noreferrer" class="btn-social btn-tiktok">
+                    Follow TikTok
+                </a>
+            </div>
         </div>
     </aside>
 
