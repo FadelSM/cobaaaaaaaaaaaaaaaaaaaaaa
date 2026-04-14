@@ -20,6 +20,7 @@
             --indigo-500: #6366f1;
             --indigo-600: #4f46e5;
             --emerald-500: #10b981;
+            --amber-500: #f59e0b; /* Warna untuk Perak */
             --text-main: #f1f5f9;
         }
 
@@ -168,15 +169,17 @@
             overflow-x: auto;
         }
 
-        table { width: 100%; border-collapse: collapse; text-align: left; min-width: 600px; }
+        table { width: 100%; border-collapse: collapse; text-align: left; min-width: 700px; }
         th { background: #1e293b; padding: 20px; font-size: 0.75rem; text-transform: uppercase; color: var(--slate-400); border-bottom: 1px solid var(--slate-700); }
         td { padding: 18px 20px; border-bottom: 1px solid var(--slate-700); font-size: 0.9rem; }
         
         tbody tr { transition: background 0.2s; }
         tbody tr:hover { background: rgba(255, 255, 255, 0.03); }
 
+        /* Status Badges */
         .badge { display: inline-block; padding: 6px 12px; border-radius: 8px; font-size: 0.75rem; font-weight: 600; }
         .badge-gold { background: rgba(16, 185, 129, 0.1); color: var(--emerald-500); border: 1px solid rgba(16, 185, 129, 0.2); }
+        .badge-silver { background: rgba(245, 158, 11, 0.1); color: var(--amber-500); border: 1px solid rgba(245, 158, 11, 0.2); }
         .badge-pending { background: rgba(148, 163, 184, 0.1); color: var(--slate-400); border: 1px solid rgba(148, 163, 184, 0.1); }
 
         .comp-link { 
@@ -260,6 +263,7 @@
             <table>
                 <thead>
                     <tr>
+                        <th>Date</th>
                         <th>Competition Name</th>
                         <th>Host</th>
                         <th>Subject</th>
@@ -277,47 +281,54 @@
 
     <script>
         const repository = [
-            { id: 1, name: "Ramadhan Science Competition Indonesia (RSCI) 2026", host: "Fosnas", field: "Informatika", result: "Medali Emas (A+)", link: "https://drive.google.com/file/d/1eztmI8LVAH0UOV_WnVB1RjkLmjBTwiT1/view?usp=drive_link" },
-            { id: 2, name: "Semarak Sains Nasional (SSN)", host: "Gemanesia", field: "Ekonomi", result: "Medali Emas (A+)", link: "https://drive.google.com/file/d/1LMRLct-DOdGwMh6F1bHQMS-1yfU02pQr/view?usp=drive_link" },
-            { id: 3, name: "Semarak Sains Nasional (SSN)", host: "Gemanesia", field: "PPKN", result: "Medali Emas (A+)", link: "https://drive.google.com/file/d/1IoBjF9ho5bU-zgQRFivI_5ZNVGPF6R6I/view?usp=drive_link" },
-            { id: 4, name: "Semarak Sains Nasional (SSN)", host: "Gemanesia", field: "Informatika", result: "Medali Emas (A+)", link: "https://drive.google.com/file/d/1Hd72RWn1hA8_EhKtoeVd5B4YK8XIt4w2/view?usp=drive_link" },
-            { id: 5, name: "National Science Competition (NSC)", host: "Puskanas", field: "PPKN", result: "Medali Emas (A+)", link: "https://drive.google.com/file/d/1Dwf8cW6rfS8C3hk5KHl85QThNOruQAlH/view?usp=drive_link" },
-            { id: 6, name: "National Science Competition (NSC)", host: "Puskanas", field: "Informatika", result: "Medali Emas (A+)", link: "https://drive.google.com/file/d/1OJSE8bk_muhpFrXfmNyrk-kWHnOx8X6F/view?usp=drive_link" },
-            { id: 7, name: "Olimpiade Sains Muda Indonesia (OSMI)", host: "Muda Sains", field: "Ekonomi", result: "Medali Perak", link: "https://drive.google.com/file/d/1-VxeLUvyW2mh7JPHzt27TXE7fY9GFbKW/view?usp=drive_link" },
-            { id: 8, name: "Olimpiade Sains Muda Indonesia (OSMI)", host: "Muda Sains", field: "Informatika", result: "Medali Emas (A+)", link: "https://drive.google.com/file/d/19BUdb6SMu5DhVRepPCQzS3q5NX5AH_bh/view?usp=drive_link" },
-            { id: 9, name: "Future Science Competition (FSC)", host: "Yaspresnas", field: "Bahasa Indonesia", result: "Medali Perak", link: "#" },
-            { id: 10, name: "Future Science Competition (FSC)", host: "Yaspresnas", field: "Bahasa Inggris", result: "Medali Emas", link: "#" },
-            { id: 11, name: "Future Science Competition (FSC)", host: "Yaspresnas", field: "Matematika", result: "Medali Perak", link: "#" },
-            { id: 12, name: "Future Science Competition (FSC)", host: "Yaspresnas", field: "Kimia", result: "Medali Perak", link: "#" },
-            { id: 13, name: "Future Science Competition (FSC)", host: "Yaspresnas", field: "Informatika", result: "Medali Perak", link: "#" },
-            { id: 14, name: "Pekan Sains Pelajar Indonesia (PSPI)", host: "Gemanesia", field: "Informatika", result: "Coming Soon", link: "#" },
-            { id: 15, name: "Olimpiade Sains dan Teknologi Nasional (OSTN)", host: "Sentral Olimpiade", field: "Biologi", result: "Coming Soon", link: "#" },
-            { id: 16, name: "Olimpiade Sains dan Teknologi Nasional (OSTN)", host: "Sentral Olimpiade", field: "PPKN", result: "Coming Soon", link: "#" },
-            { id: 17, name: "Sentral Olimpiade Nasional (SEON)", host: "Sentral Olimpiade", field: "Informatika", result: "Coming Soon", link: "#" },
-            { id: 18, name: "Sentral Olimpiade Nasional (SEON)", host: "Sentral Olimpiade", field: "Geografi", result: "Coming Soon", link: "#" },
-            { id: 19, name: "Kejuaraan Sains Nasional (KSN)", host: "Puskanas", field: "Ekonomi", result: "Coming Soon", link: "#" },
-            { id: 20, name: "Kejuaraan Sains Nasional (KSN)", host: "Puskanas", field: "Informatika", result: "Coming Soon", link: "#" }
+            { id: 1, date: "15 Maret 2026", name: "Ramadhan Science Competition Indonesia (RSCI) 2026", host: "Fosnas", field: "Informatika", result: "Medali Emas (A+)", link: "https://drive.google.com/file/d/1eztmI8LVAH0UOV_WnVB1RjkLmjBTwiT1/view?usp=drive_link" },
+            { id: 2, date: "10 Maret 2026", name: "Semarak Sains Nasional (SSN)", host: "Gemanesia", field: "Ekonomi", result: "Medali Emas (A+)", link: "https://drive.google.com/file/d/1LMRLct-DOdGwMh6F1bHQMS-1yfU02pQr/view?usp=drive_link" },
+            { id: 3, date: "10 Maret 2026", name: "Semarak Sains Nasional (SSN)", host: "Gemanesia", field: "PPKN", result: "Medali Emas (A+)", link: "https://drive.google.com/file/d/1IoBjF9ho5bU-zgQRFivI_5ZNVGPF6R6I/view?usp=drive_link" },
+            { id: 4, date: "10 Maret 2026", name: "Semarak Sains Nasional (SSN)", host: "Gemanesia", field: "Informatika", result: "Medali Emas (A+)", link: "https://drive.google.com/file/d/1Hd72RWn1hA8_EhKtoeVd5B4YK8XIt4w2/view?usp=drive_link" },
+            { id: 5, date: "05 Maret 2026", name: "National Science Competition (NSC)", host: "Puskanas", field: "PPKN", result: "Medali Emas (A+)", link: "https://drive.google.com/file/d/1Dwf8cW6rfS8C3hk5KHl85QThNOruQAlH/view?usp=drive_link" },
+            { id: 6, date: "05 Maret 2026", name: "National Science Competition (NSC)", host: "Puskanas", field: "Informatika", result: "Medali Emas (A+)", link: "https://drive.google.com/file/d/1OJSE8bk_muhpFrXfmNyrk-kWHnOx8X6F/view?usp=drive_link" },
+            { id: 7, date: "25 Feb 2026", name: "Olimpiade Sains Muda Indonesia (OSMI)", host: "Muda Sains", field: "Ekonomi", result: "Medali Perak", link: "https://drive.google.com/file/d/1-VxeLUvyW2mh7JPHzt27TXE7fY9GFbKW/view?usp=drive_link" },
+            { id: 8, date: "25 Feb 2026", name: "Olimpiade Sains Muda Indonesia (OSMI)", host: "Muda Sains", field: "Informatika", result: "Medali Emas (A+)", link: "https://drive.google.com/file/d/19BUdb6SMu5DhVRepPCQzS3q5NX5AH_bh/view?usp=drive_link" },
+            { id: 9, date: "12 Apr 2026", name: "Future Science Competition (FSC)", host: "Yaspresnas", field: "Bahasa Indonesia", result: "Medali Perak", link: "#" },
+            { id: 10, date: "12 Apr 2026", name: "Future Science Competition (FSC)", host: "Yaspresnas", field: "Bahasa Inggris", result: "Medali Emas", link: "#" },
+            { id: 11, date: "12 Apr 2026", name: "Future Science Competition (FSC)", host: "Yaspresnas", field: "Matematika", result: "Medali Perak", link: "#" },
+            { id: 12, date: "12 Apr 2026", name: "Future Science Competition (FSC)", host: "Yaspresnas", field: "Kimia", result: "Medali Perak", link: "#" },
+            { id: 13, date: "12 Apr 2026", name: "Future Science Competition (FSC)", host: "Yaspresnas", field: "Informatika", result: "Medali Perak", link: "#" },
+            { id: 14, date: "Coming Soon", name: "Pekan Sains Pelajar Indonesia (PSPI)", host: "Gemanesia", field: "Informatika", result: "Coming Soon", link: "#" },
+            { id: 15, date: "Coming Soon", name: "Olimpiade Sains dan Teknologi Nasional (OSTN)", host: "Sentral Olimpiade", field: "Biologi", result: "Coming Soon", link: "#" },
+            { id: 16, date: "Coming Soon", name: "Olimpiade Sains dan Teknologi Nasional (OSTN)", host: "Sentral Olimpiade", field: "PPKN", result: "Coming Soon", link: "#" },
+            { id: 17, date: "Coming Soon", name: "Sentral Olimpiade Nasional (SEON)", host: "Sentral Olimpiade", field: "Informatika", result: "Coming Soon", link: "#" },
+            { id: 18, date: "Coming Soon", name: "Sentral Olimpiade Nasional (SEON)", host: "Sentral Olimpiade", field: "Geografi", result: "Coming Soon", link: "#" },
+            { id: 19, date: "Coming Soon", name: "Kejuaraan Sains Nasional (KSN)", host: "Puskanas", field: "Ekonomi", result: "Coming Soon", link: "#" },
+            { id: 20, date: "Coming Soon", name: "Kejuaraan Sains Nasional (KSN)", host: "Puskanas", field: "Informatika", result: "Coming Soon", link: "#" }
         ];
 
         const renderTarget = document.getElementById('render-target');
         const searchBar = document.getElementById('search-bar');
 
         function displayData(data) {
-            renderTarget.innerHTML = data.length ? "" : '<tr><td colspan="4" style="text-align:center; padding:50px; color:#666;">Data tidak ditemukan...</td></tr>';
+            renderTarget.innerHTML = data.length ? "" : '<tr><td colspan="5" style="text-align:center; padding:50px; color:#666;">Data tidak ditemukan...</td></tr>';
             
             data.forEach((item, index) => {
                 const isGold = item.result.includes("Emas");
+                const isSilver = item.result.includes("Perak");
                 const hasLink = item.link && item.link !== "#";
                 
+                // Tentukan kelas badge
+                let badgeClass = "badge-pending";
+                if (isGold) badgeClass = "badge-gold";
+                else if (isSilver) badgeClass = "badge-silver";
+
                 const row = `
                     <tr style="animation: fadeIn 0.4s ease forwards ${index * 0.05}s; opacity: 0;">
+                        <td style="color: var(--slate-400); font-size: 0.8rem;">${item.date}</td>
                         <td>
                             ${hasLink ? `<a href="${item.link}" target="_blank" rel="noopener noreferrer" class="comp-link">${item.name}</a>` : item.name}
                         </td>
                         <td>${item.host}</td>
                         <td>${item.field}</td>
                         <td>
-                            <span class="badge ${isGold ? 'badge-gold' : 'badge-pending'}">${item.result}</span>
+                            <span class="badge ${badgeClass}">${item.result}</span>
                         </td>
                     </tr>
                 `;
