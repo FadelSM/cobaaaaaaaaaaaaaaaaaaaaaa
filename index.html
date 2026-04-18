@@ -356,24 +356,30 @@
             
             // Jalankan fungsi hitung mundur
             setInterval(() => {
-                const eventDate = new Date(item.date).getTime();
-                const now = new Date().getTime();
-                const distance = eventDate - now;
-                const timerElement = document.getElementById(countdownId);
+    const eventDate = new Date(item.date).getTime();
+    const now = new Date().getTime();
+    const distance = eventDate - now;
+    const timerElement = document.getElementById(countdownId);
 
-                if (timerElement) {
-                    if (distance > 0) {
-                        const h = Math.floor((distance / (1000 * 60 * 60))); // Total jam
-                        const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                        const s = Math.floor((distance % (1000 * 60)) / 1000);
-                        
-                        // Format: 23h 45m 22s
-                        timerElement.innerHTML = `⏳ ${h}h ${m}m ${s}s`;
-                    } else {
-                        timerElement.innerHTML = "Selesai/Berlangsung";
-                    }
-                }
-            }, 1000);
+    if (timerElement) {
+        if (distance > 0) {
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            
+            if (days >= 1) {
+                // Jika masih 1 hari atau lebih, tampilkan format "X Hari lagi"
+                timerElement.innerHTML = `⏳ ${days + 1} Hari lagi`;
+            } else {
+                // Jika kurang dari 24 jam, tampilkan format jam:menit:detik
+                const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const s = Math.floor((distance % (1000 * 60)) / 1000);
+                timerElement.innerHTML = `⏳ ${h}h ${m}m ${s}s`;
+            }
+        } else {
+            timerElement.innerHTML = "Selesai/Berlangsung";
+              }
+            }
+          }, 1000);
         }
 
         if (res.includes("emas")) {
