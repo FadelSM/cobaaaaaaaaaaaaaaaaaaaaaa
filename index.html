@@ -342,36 +342,50 @@
         const searchBar = document.getElementById('search-bar');
 
         function displayData(data) {
-            renderTarget.innerHTML = data.length ? "" : '<tr><td colspan="5" style="text-align:center; padding:50px; color:#666;">Data tidak ditemukan...</td></tr>';
-            
-            data.forEach((item, index) => {
-                const res = item.result.toLowerCase();
-                let badgeClass = "badge-pending";
+    renderTarget.innerHTML = data.length ? "" : '<tr><td colspan="5" style="text-align:center; padding:50px; color:#666;">Data tidak ditemukan...</td></tr>';
+    
+    data.forEach((item, index) => {
+        const res = item.result.toLowerCase();
+        let badgeClass = "badge-pending";
+        let displayResult = item.result;
 
-                if (res.includes("emas")) {
-                    badgeClass = "badge-gold";
-                } else if (res.includes("perak")) {
-                    badgeClass = "badge-silver";
-                }
+        // Logika Hitung Mundur untuk "Coming Soon"
+        if (res.includes("coming soon")) {
+            const eventDate = new Date(item.date + " 2026").getTime();
+            const now = new Date().getTime();
+            const distance = eventDate - now;
 
-                const hasLink = item.link && item.link !== "#";
-
-                const row = `
-                    <tr style="animation: fadeIn 0.4s ease forwards ${index * 0.05}s; opacity: 0;">
-                        <td style="color: var(--slate-400); font-size: 0.8rem; font-weight: 600;">${item.date}</td>
-                        <td>
-                            ${hasLink ? `<a href="${item.link}" target="_blank" rel="noopener noreferrer" class="comp-link">${item.name}</a>` : item.name}
-                        </td>
-                        <td>${item.host}</td>
-                        <td>${item.field}</td>
-                        <td>
-                            <span class="badge ${badgeClass}">${item.result}</span>
-                        </td>
-                    </tr>
-                `;
-                renderTarget.innerHTML += row;
-            });
+            if (distance > 0) {
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                displayResult = `⏳ ${days}h ${hours}j lagi`;
+            }
         }
+
+        if (res.includes("emas")) {
+            badgeClass = "badge-gold";
+        } else if (res.includes("perak")) {
+            badgeClass = "badge-silver";
+        }
+
+        const hasLink = item.link && item.link !== "#";
+
+        const row = `
+            <tr style="animation: fadeIn 0.4s ease forwards ${index * 0.05}s; opacity: 0;">
+                <td style="color: var(--slate-400); font-size: 0.8rem; font-weight: 600;">${item.date}</td>
+                <td>
+                    ${hasLink ? `<a href="${item.link}" target="_blank" rel="noopener noreferrer" class="comp-link">${item.name}</a>` : item.name}
+                </td>
+                <td>${item.host}</td>
+                <td>${item.field}</td>
+                <td>
+                    <span class="badge ${badgeClass}">${displayResult}</span>
+                </td>
+            </tr>
+        `;
+        renderTarget.innerHTML += row;
+    });
+}
 
         searchBar.addEventListener('input', (e) => {
             const keyword = e.target.value.toLowerCase();
