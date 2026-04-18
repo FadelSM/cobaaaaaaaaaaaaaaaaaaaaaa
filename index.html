@@ -16,6 +16,7 @@
             f.parentNode.insertBefore(j,f);
         })(window,document,'script','dataLayer','GTM-KG8693GC');
     </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="dcTOHBzTQQMnYAnLS8lYdfux83TuoJ5cmgjvTwH7dAk" />
@@ -44,7 +45,6 @@
             --white: #ffffff;
         }
 
-        /* Base Reset */
         * {
             margin: 0;
             padding: 0;
@@ -74,12 +74,11 @@
             font-family: 'Inter', sans-serif;
             display: flex;
             min-height: 100vh;
-            line-height: 1.5;
+            line-height: 1.6;
         }
 
-        /* Sidebar Sidebar */
         aside {
-            width: 300px;
+            width: 320px;
             background: linear-gradient(180deg, var(--slate-800) 0%, var(--slate-900) 100%);
             border-right: 1px solid var(--slate-700);
             padding: 50px 30px;
@@ -94,9 +93,9 @@
         }
         
         .dev-avatar { 
-            width: 100px; 
-            height: 100px; 
-            border-radius: 28px;
+            width: 110px; 
+            height: 110px; 
+            border-radius: 30px;
             margin: 0 auto 25px; 
             overflow: hidden;
             display: flex;
@@ -106,55 +105,57 @@
             background: linear-gradient(45deg, #f06, #f90, #ff0, #0f9, #0cf, #c0f, #f06);
             background-size: 400% 400%;
             animation: gradientBorder 5s ease infinite;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         .dev-avatar img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 24px;
+            border-radius: 26px;
             background: var(--slate-900);
         }
 
         .dev-avatar:hover {
-            transform: scale(1.1) rotate(3deg);
+            transform: scale(1.1) rotate(5deg);
         }
 
         .dev-name {
-            font-size: 1.25rem;
+            font-size: 1.3rem;
             font-weight: 700;
-            margin: 0;
             color: var(--white);
+            margin-bottom: 5px;
         }
 
         .dev-role {
             font-size: 0.85rem;
             color: var(--indigo-500);
             font-weight: 600;
-            margin-top: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        /* Profile Meta Section */
         .profile-meta {
             display: flex;
             flex-direction: column;
-            gap: 15px;
-            margin-top: 20px;
+            gap: 18px;
+            margin-top: 25px;
         }
 
         .meta-item {
             display: flex;
             flex-direction: column;
+            border-left: 2px solid var(--slate-700);
+            padding-left: 15px;
         }
 
         .meta-label {
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             color: var(--slate-400);
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 3px;
+            letter-spacing: 1.2px;
+            margin-bottom: 2px;
         }
 
         .meta-value {
@@ -163,27 +164,26 @@
             font-weight: 600;
         }
 
-        /* Button Links */
         .social-links {
             display: flex;
             flex-direction: column;
-            gap: 12px;
-            margin-top: 35px;
+            gap: 14px;
+            margin-top: 40px;
         }
 
         .btn-social {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            gap: 12px;
             color: var(--white);
             text-decoration: none;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             font-weight: 700;
-            padding: 14px;
-            border-radius: 14px;
-            transition: all 0.2s ease;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
         }
 
         .btn-instagram {
@@ -196,104 +196,104 @@
         }
 
         .btn-social:hover {
-            transform: translateY(-3px);
-            filter: brightness(1.1);
+            transform: translateY(-4px);
+            filter: contrast(1.2);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.3);
         }
 
-        /* Main Content */
         main {
             flex: 1;
             padding: 80px 60px;
             overflow-y: auto;
-            max-width: 1200px;
+            width: 100%;
         }
 
         header {
-            margin-bottom: 45px;
+            margin-bottom: 50px;
         }
 
         header h1 {
-            font-size: 2.8rem;
+            font-size: 3rem;
             font-weight: 800;
-            letter-spacing: -1.5px;
-            margin-bottom: 12px;
-            background: linear-gradient(to right, #fff, var(--slate-400));
+            letter-spacing: -2px;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #ffffff 0%, #94a3b8 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         header p {
-            font-size: 1.15rem;
+            font-size: 1.2rem;
             color: var(--slate-400);
+            max-width: 600px;
         }
 
-        /* Search Box */
         .search-container {
-            margin-bottom: 40px;
+            margin-bottom: 45px;
+            position: relative;
         }
 
         .search-input {
             width: 100%;
-            max-width: 450px;
+            max-width: 500px;
             background: var(--slate-800);
             border: 2px solid var(--slate-700);
-            padding: 16px 20px;
-            border-radius: 16px;
+            padding: 18px 25px;
+            border-radius: 18px;
             color: var(--white);
-            font-family: inherit;
             font-size: 1rem;
             outline: none;
-            transition: border-color 0.3s;
+            transition: all 0.3s;
         }
 
         .search-input:focus {
             border-color: var(--indigo-500);
+            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
         }
 
-        /* Dashboard Stats */
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 25px;
-            margin-bottom: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
         }
 
         .stat-card {
             background: var(--slate-800);
-            padding: 30px;
-            border-radius: 20px;
+            padding: 35px;
+            border-radius: 24px;
             border: 1px solid var(--slate-700);
             text-align: center;
-            transition: transform 0.3s;
+            transition: all 0.3s ease;
         }
 
         .stat-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
+            border-color: var(--indigo-500);
         }
 
         .stat-value {
-            font-size: 3rem;
+            font-size: 3.5rem;
             font-weight: 800;
             color: var(--indigo-500);
             line-height: 1;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
         .stat-label {
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             color: var(--slate-400);
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 2px;
         }
 
-        /* Table Components */
         .table-container {
             background: var(--slate-800);
-            border-radius: 20px;
+            border-radius: 24px;
             border: 1px solid var(--slate-700);
             overflow: hidden;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
         }
 
         table {
@@ -303,123 +303,122 @@
         }
 
         th {
-            background: rgba(30, 41, 59, 0.8);
-            padding: 22px 25px;
+            background: rgba(15, 23, 42, 0.5);
+            padding: 25px;
             font-size: 0.75rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             color: var(--slate-400);
             border-bottom: 1px solid var(--slate-700);
         }
 
         td {
-            padding: 25px;
+            padding: 30px 25px;
             border-bottom: 1px solid var(--slate-700);
             vertical-align: top;
         }
 
-        tbody tr {
-            transition: background 0.3s;
+        tbody tr:last-child td {
+            border-bottom: none;
         }
 
-        tbody tr:hover {
-            background: rgba(255, 255, 255, 0.02);
-        }
-
-        /* Link Styling - KHUSUS NO 1-4 PUTIH SESUAI REKOMENDASI */
         .comp-link {
             color: var(--white);
             text-decoration: none;
             font-weight: 700;
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             display: inline-block;
-            margin-bottom: 8px;
-            transition: opacity 0.2s;
+            margin-bottom: 10px;
+            transition: all 0.2s;
         }
 
         .comp-link:hover {
+            color: var(--indigo-500);
             text-decoration: underline;
-            opacity: 0.8;
         }
 
-        /* Info Vertikal di bawah Nama Lomba */
         .vertical-info {
             display: flex;
             flex-direction: column;
-            gap: 4px;
-            font-size: 0.85rem;
+            gap: 6px;
+            font-size: 0.9rem;
             color: var(--slate-400);
         }
 
         .info-row {
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
         }
 
         .info-label {
-            font-weight: 600;
+            font-weight: 700;
             color: var(--slate-600);
+            min-width: 120px;
         }
 
-        /* Badge Results */
         .badge {
             display: inline-block;
-            padding: 6px 14px;
-            border-radius: 10px;
+            padding: 8px 16px;
+            border-radius: 12px;
             font-size: 0.75rem;
-            font-weight: 700;
-            margin-top: 10px;
+            font-weight: 800;
+            margin-top: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .badge-gold {
-            background: rgba(251, 191, 36, 0.12);
+            background: rgba(251, 191, 36, 0.1);
             color: var(--gold-color);
-            border: 1px solid rgba(251, 191, 36, 0.3);
+            border: 1px solid rgba(251, 191, 36, 0.4);
         }
 
         .badge-silver {
-            background: rgba(203, 213, 225, 0.12);
+            background: rgba(203, 213, 225, 0.1);
             color: var(--silver-color);
-            border: 1px solid rgba(203, 213, 225, 0.3);
+            border: 1px solid rgba(203, 213, 225, 0.4);
         }
 
         .badge-coming {
             background: rgba(99, 102, 241, 0.1);
             color: var(--indigo-500);
-            border: 1px solid rgba(99, 102, 241, 0.3);
+            border: 1px solid rgba(99, 102, 241, 0.4);
         }
 
-        /* Countdown Timer */
         .countdown-timer {
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             font-weight: 700;
-            color: #ef4444;
-            margin-top: 8px;
-            padding: 4px 0;
-            display: block;
+            color: #f87171;
+            margin-top: 10px;
+            background: rgba(248, 113, 113, 0.1);
+            padding: 6px 12px;
+            border-radius: 8px;
+            display: inline-block;
         }
 
-        /* Footer */
         footer {
-            margin-top: 80px;
-            padding: 40px 20px;
+            margin-top: 100px;
+            padding: 60px 20px;
             border-top: 1px solid var(--slate-700);
             text-align: center;
         }
 
-        .footer-text {
-            color: var(--slate-600);
-            font-size: 0.85rem;
-            font-weight: 500;
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
         }
 
-        /* Responsive Breakpoints */
-        @media (max-width: 992px) {
+        .footer-text {
+            color: var(--slate-600);
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 1024px) {
             body { flex-direction: column; }
-            aside { width: 100%; padding: 40px 20px; border-right: none; border-bottom: 1px solid var(--slate-700); }
-            main { padding: 40px 20px; }
-            header h1 { font-size: 2.2rem; }
+            aside { width: 100%; padding: 40px; }
+            main { padding: 40px 25px; }
         }
     </style>
 </head>
@@ -437,19 +436,19 @@
         
         <div class="profile-meta">
             <div class="meta-item">
-                <span class="meta-label">Institusi</span>
+                <span class="meta-label">Institusi Pendidikan</span>
                 <span class="meta-value">SMA PGRI 3 Jakarta</span>
             </div>
             <div class="meta-item">
-                <span class="meta-label">Kelas Aktif</span>
-                <span class="meta-value">X.4 (Sepuluh)</span>
+                <span class="meta-label">Kelas / Angkatan</span>
+                <span class="meta-value">X.4 / 2026</span>
             </div>
             <div class="meta-item">
                 <span class="meta-label">Tempat Lahir</span>
                 <span class="meta-value">Jakarta, 11 Juni 2009</span>
             </div>
             <div class="meta-item">
-                <span class="meta-label">Status Keluarga</span>
+                <span class="meta-label">Posisi Keluarga</span>
                 <span class="meta-value">Anak Bungsu</span>
             </div>
         </div>
@@ -467,25 +466,25 @@
     <main>
         <header>
             <h1>Achievement Repository</h1>
-            <p>Pusat data sertifikasi, medali, dan jadwal kompetisi mendatang.</p>
+            <p>Database komprehensif medali, sertifikat, dan jadwal olimpiade nasional yang diikuti oleh Fadel Shafwan Maliki.</p>
         </header>
 
         <div class="search-container">
-            <input type="text" id="main-search" class="search-input" placeholder="Cari nama lomba atau kategori...">
+            <input type="text" id="search-engine" class="search-input" placeholder="Filter berdasarkan nama lomba atau mata pelajaran...">
         </div>
 
         <div class="stats-grid">
             <div class="stat-card">
-                <div class="stat-value" id="gold-total">0</div>
+                <div class="stat-value" id="total-gold">0</div>
                 <div class="stat-label">Medali Emas</div>
             </div>
             <div class="stat-card">
-                <div class="stat-value" id="comp-total">0</div>
-                <div class="stat-label">Total Partisipasi</div>
+                <div class="stat-value" id="total-participation">0</div>
+                <div class="stat-label">Total Lomba</div>
             </div>
             <div class="stat-card">
                 <div class="stat-value">2026</div>
-                <div class="stat-label">Tahun Akademik</div>
+                <div class="stat-label">Tahun Aktif</div>
             </div>
         </div>
 
@@ -493,253 +492,106 @@
             <table>
                 <thead>
                     <tr>
-                        <th style="width: 130px;">Timeline</th>
-                        <th>Informasi Lengkap Kompetisi</th>
+                        <th style="width: 150px;">Tanggal</th>
+                        <th>Detail Kompetisi & Hasil</th>
                     </tr>
                 </thead>
-                <tbody id="achievement-table">
+                <tbody id="data-display">
                     </tbody>
             </table>
         </div>
 
         <footer>
-            <div class="footer-text">
-                &copy; 2026 Fadel Shafwan Maliki. All Rights Reserved. <br>
-                Cyber Security Specialist & Software Engineer Enthusiast.
+            <div class="footer-content">
+                <p class="footer-text">
+                    &copy; 2026 Fadel Shafwan Maliki. Seluruh hak cipta dilindungi undang-undang. <br>
+                    Dikembangkan dengan fokus pada akurasi data dan performa tinggi. <br>
+                    Cyber Security Specialist | Software Engineer Enthusiast.
+                </p>
             </div>
         </footer>
     </main>
 
     <script>
         /**
-         * Database Prestasi Fadel Shafwan Maliki
-         * Berisi link sertifikat dan jadwal lomba
+         * FULL DATABASE - 20 ITEMS
          */
-        const database = [
-            { 
-                id: 1, 
-                date: "2026-03-01", 
-                name: "Ramadhan Science Competition Indonesia (RSCI) 2026", 
-                host: "Fosnas", 
-                field: "Informatika", 
-                result: "Medali Emas (A+)", 
-                link: "https://drive.google.com/file/d/1eztmI8LVAH0UOV_WnVB1RjkLmjBTwiT1/view" 
-            },
-            { 
-                id: 2, 
-                date: "2026-03-15", 
-                name: "Semarak Sains Nasional (SSN)", 
-                host: "Gemanesia", 
-                field: "Ekonomi", 
-                result: "Medali Emas (A+)", 
-                link: "https://drive.google.com/file/d/1LMRLct-DOdGwMh6F1bHQMS-1yfU02pQr/view" 
-            },
-            { 
-                id: 3, 
-                date: "2026-03-15", 
-                name: "Semarak Sains Nasional (SSN)", 
-                host: "Gemanesia", 
-                field: "PPKN", 
-                result: "Medali Emas (A+)", 
-                link: "https://drive.google.com/file/d/1IoBjF9ho5bU-zgQRFivI_5ZNVGPF6R6I/view" 
-            },
-            { 
-                id: 4, 
-                date: "2026-03-15", 
-                name: "Semarak Sains Nasional (SSN)", 
-                host: "Gemanesia", 
-                field: "Informatika", 
-                result: "Medali Emas (A+)", 
-                link: "https://drive.google.com/file/d/1Hd72RWn1hA8_EhKtoeVd5B4YK8XIt4w2/view" 
-            },
-            { 
-                id: 5, 
-                date: "2026-03-29", 
-                name: "National Science Competition (NSC)", 
-                host: "Puskanas", 
-                field: "PPKN", 
-                result: "Medali Emas (A+)", 
-                link: "https://drive.google.com/file/d/1Dwf8cW6rfS8C3hk5KHl85QThNOruQAlH/view" 
-            },
-            { 
-                id: 6, 
-                date: "2026-03-29", 
-                name: "National Science Competition (NSC)", 
-                host: "Puskanas", 
-                field: "Informatika", 
-                result: "Medali Emas (A+)", 
-                link: "https://drive.google.com/file/d/1OJSE8bk_muhpFrXfmNyrk-kWHnOx8X6F/view" 
-            },
-            { 
-                id: 7, 
-                date: "2026-03-29", 
-                name: "Olimpiade Sains Muda Indonesia (OSMI)", 
-                host: "Muda Sains", 
-                field: "Ekonomi", 
-                result: "Medali Perak", 
-                link: "https://drive.google.com/file/d/1-VxeLUvyW2mh7JPHzt27TXE7fY9GFbKW/view" 
-            },
-            { 
-                id: 8, 
-                date: "2026-03-29", 
-                name: "Olimpiade Sains Muda Indonesia (OSMI)", 
-                host: "Muda Sains", 
-                field: "Informatika", 
-                result: "Medali Emas (A+)", 
-                link: "https://drive.google.com/file/d/19BUdb6SMu5DhVRepPCQzS3q5NX5AH_bh/view" 
-            },
-            { 
-                id: 9, 
-                date: "2026-04-19", 
-                name: "Pekan Sains Pelajar Indonesia (PSPI)", 
-                host: "Gemanesia", 
-                field: "Informatika", 
-                result: "Coming Soon", 
-                link: "#" 
-            },
-            { 
-                id: 10, 
-                date: "2026-05-24", 
-                name: "Sentral Olimpiade Nasional (SEON)", 
-                host: "Sentral Olimpiade", 
-                field: "Informatika", 
-                result: "Coming Soon", 
-                link: "#" 
-            },
-            { 
-                id: 11, 
-                date: "2026-05-24", 
-                name: "Sentral Olimpiade Nasional (SEON)", 
-                host: "Sentral Olimpiade", 
-                field: "Geografi", 
-                result: "Coming Soon", 
-                link: "#" 
-            },
-            { 
-                id: 12, 
-                date: "2026-04-26", 
-                name: "Kejuaraan Sains Nasional (KSN)", 
-                host: "Puskanas", 
-                field: "Ekonomi", 
-                result: "Coming Soon", 
-                link: "#" 
-            },
-            { 
-                id: 13, 
-                date: "2026-04-26", 
-                name: "Kejuaraan Sains Nasional (KSN)", 
-                host: "Puskanas", 
-                field: "Informatika", 
-                result: "Coming Soon", 
-                link: "#" 
-            }
+        const repository = [
+            { id: 1, date: "2026-03-01", name: "Ramadhan Science Competition Indonesia (RSCI) 2026", host: "Fosnas", field: "Informatika", result: "Medali Emas (A+)", link: "https://drive.google.com/file/d/1eztmI8LVAH0UOV_WnVB1RjkLmjBTwiT1/view" },
+            { id: 2, date: "2026-03-15", name: "Semarak Sains Nasional (SSN)", host: "Gemanesia", field: "Ekonomi", result: "Medali Emas (A+)", link: "https://drive.google.com/file/d/1LMRLct-DOdGwMh6F1bHQMS-1yfU02pQr/view" },
+            { id: 3, date: "2026-03-15", name: "Semarak Sains Nasional (SSN)", host: "Gemanesia", field: "PPKN", result: "Medali Emas (A+)", link: "https://drive.google.com/file/d/1IoBjF9ho5bU-zgQRFivI_5ZNVGPF6R6I/view" },
+            { id: 4, date: "2026-03-15", name: "Semarak Sains Nasional (SSN)", host: "Gemanesia", field: "Informatika", result: "Medali Emas (A+)", link: "https://drive.google.com/file/d/1Hd72RWn1hA8_EhKtoeVd5B4YK8XIt4w2/view" },
+            { id: 5, date: "2026-03-29", name: "National Science Competition (NSC)", host: "Puskanas", field: "PPKN", result: "Medali Emas (A+)", link: "https://drive.google.com/file/d/1Dwf8cW6rfS8C3hk5KHl85QThNOruQAlH/view" },
+            { id: 6, date: "2026-03-29", name: "National Science Competition (NSC)", host: "Puskanas", field: "Informatika", result: "Medali Emas (A+)", link: "https://drive.google.com/file/d/1OJSE8bk_muhpFrXfmNyrk-kWHnOx8X6F/view" },
+            { id: 7, date: "2026-03-29", name: "Olimpiade Sains Muda Indonesia (OSMI)", host: "Muda Sains", field: "Ekonomi", result: "Medali Perak", link: "https://drive.google.com/file/d/1-VxeLUvyW2mh7JPHzt27TXE7fY9GFbKW/view" },
+            { id: 8, date: "2026-03-29", name: "Olimpiade Sains Muda Indonesia (OSMI)", host: "Muda Sains", field: "Informatika", result: "Medali Emas (A+)", link: "https://drive.google.com/file/d/19BUdb6SMu5DhVRepPCQzS3q5NX5AH_bh/view" },
+            { id: 9, date: "2026-04-05", name: "Future Science Competition (FSC)", host: "Yaspresnas", field: "Bahasa Indonesia", result: "Medali Perak", link: "#" },
+            { id: 10, date: "2026-04-05", name: "Future Science Competition (FSC)", host: "Yaspresnas", field: "Bahasa Inggris", result: "Medali Emas (A+)", link: "#" },
+            { id: 11, date: "2026-04-05", name: "Future Science Competition (FSC)", host: "Yaspresnas", field: "Matematika", result: "Medali Perak", link: "#" },
+            { id: 12, date: "2026-04-05", name: "Future Science Competition (FSC)", host: "Yaspresnas", field: "Kimia", result: "Medali Perak", link: "#" },
+            { id: 13, date: "2026-04-05", name: "Future Science Competition (FSC)", host: "Yaspresnas", field: "Informatika", result: "Medali Perak", link: "#" },
+            { id: 14, date: "2026-04-19", name: "Pekan Sains Pelajar Indonesia (PSPI)", host: "Gemanesia", field: "Informatika", result: "Coming Soon", link: "#" },
+            { id: 15, date: "2026-04-19", name: "Olimpiade Sains dan Teknologi Nasional (OSTN)", host: "Sentral Olimpiade", field: "Biologi", result: "Coming Soon", link: "#" },
+            { id: 16, date: "2026-04-19", name: "Olimpiade Sains dan Teknologi Nasional (OSTN)", host: "Sentral Olimpiade", field: "PPKN", result: "Coming Soon", link: "#" },
+            { id: 17, date: "2026-05-24", name: "Sentral Olimpiade Nasional (SEON)", host: "Sentral Olimpiade", field: "Informatika", result: "Coming Soon", link: "#" },
+            { id: 18, date: "2026-05-24", name: "Sentral Olimpiade Nasional (SEON)", host: "Sentral Olimpiade", field: "Geografi", result: "Coming Soon", link: "#" },
+            { id: 19, date: "2026-04-26", name: "Kejuaraan Sains Nasional (KSN)", host: "Puskanas", field: "Ekonomi", result: "Coming Soon", link: "#" },
+            { id: 20, date: "2026-04-26", name: "Kejuaraan Sains Nasional (KSN)", host: "Puskanas", field: "Informatika", result: "Coming Soon", link: "#" }
         ];
 
-        /**
-         * Fungsi Hitung Mundur (Countdown)
-         */
-        function getCountdownString(targetDate) {
+        function getCountdown(date) {
+            const target = new Date(date).getTime();
             const now = new Date().getTime();
-            const target = new Date(targetDate).getTime();
-            const difference = target - now;
-
-            if (difference <= 0) {
-                return "Acara Sedang Berlangsung / Selesai";
-            }
-
-            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-
-            return `Mulai dalam ${days} hari ${hours} jam lagi`;
+            const diff = target - now;
+            if (diff <= 0) return "Kompetisi Sedang/Sudah Berlangsung";
+            const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+            return `⏳ Dimulai dalam ${d} hari lagi`;
         }
 
-        /**
-         * Fungsi Render Tabel Utama
-         */
-        function renderAchievements(filterText = "") {
-            const tableBody = document.getElementById('achievement-table');
-            tableBody.innerHTML = "";
+        function renderTable(filter = "") {
+            const container = document.getElementById('data-display');
+            container.innerHTML = "";
+            
+            const filtered = repository.filter(item => 
+                item.name.toLowerCase().includes(filter.toLowerCase()) || 
+                item.field.toLowerCase().includes(filter.toLowerCase())
+            );
 
-            const filteredData = database.filter(item => {
-                return item.name.toLowerCase().includes(filterText.toLowerCase()) || 
-                       item.field.toLowerCase().includes(filterText.toLowerCase());
-            });
-
-            if (filteredData.length === 0) {
-                tableBody.innerHTML = '<tr><td colspan="2" style="text-align:center; padding:100px; color:#475569;">Data tidak ditemukan.</td></tr>';
-                return;
-            }
-
-            filteredData.forEach((item, index) => {
-                const isComing = item.result.toLowerCase().includes("coming soon");
+            filtered.forEach((item, index) => {
+                const isComing = item.result.includes("Coming");
+                const badgeClass = item.result.includes("Emas") ? "badge-gold" : isComing ? "badge-coming" : "badge-silver";
                 
-                // Tentukan Class Badge
-                let badgeStyle = "badge-silver";
-                if (item.result.includes("Emas")) badgeStyle = "badge-gold";
-                if (isComing) badgeStyle = "badge-coming";
-
-                // Format Tanggal
-                const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
-                const formattedDate = new Date(item.date).toLocaleDateString('id-ID', dateOptions);
-
-                // Buat Baris Tabel
                 const row = document.createElement('tr');
                 row.style.animation = `fadeIn 0.5s ease forwards ${index * 0.05}s`;
                 row.style.opacity = "0";
 
                 row.innerHTML = `
-                    <td style="color: var(--slate-400); font-size: 0.85rem; font-weight: 600;">
-                        ${formattedDate}
+                    <td style="color: var(--slate-400); font-weight: 600; font-size: 0.85rem;">
+                        ${new Date(item.date).toLocaleDateString('id-ID', {day:'numeric', month:'long', year:'numeric'})}
                     </td>
                     <td>
-                        <a href="${item.link}" target="_blank" class="comp-link">
-                            ${item.name}
-                        </a>
-                        
+                        <a href="${item.link}" target="_blank" class="comp-link">${item.name}</a>
                         <div class="vertical-info">
-                            <div class="info-row">
-                                <span class="info-label">Penyelenggara:</span>
-                                <span>${item.host}</span>
-                            </div>
-                            <div class="info-row">
-                                <span class="info-label">Bidang Studi:</span>
-                                <span>${item.field}</span>
-                            </div>
+                            <div class="info-row"><span class="info-label">Penyelenggara:</span><span>${item.host}</span></div>
+                            <div class="info-row"><span class="info-label">Bidang Studi:</span><span>${item.field}</span></div>
                         </div>
-
-                        <div>
-                            <span class="badge ${badgeStyle}">${item.result}</span>
-                        </div>
-
-                        ${isComing ? `<span class="countdown-timer">⏳ ${getCountdownString(item.date)}</span>` : ""}
+                        <span class="badge ${badgeClass}">${item.result}</span>
+                        ${isComing ? `<br><span class="countdown-timer">${getCountdown(item.date)}</span>` : ""}
                     </td>
                 `;
-
-                tableBody.appendChild(row);
+                container.appendChild(row);
             });
         }
 
-        /**
-         * Inisialisasi Dashboard
-         */
-        function initApp() {
-            // Pasang Event Search
-            const searchInput = document.getElementById('main-search');
-            searchInput.addEventListener('input', (e) => {
-                renderAchievements(e.target.value);
-            });
+        document.getElementById('search-engine').addEventListener('input', (e) => {
+            renderTable(e.target.value);
+        });
 
-            // Update Statistik
-            const goldCount = database.filter(i => i.result.includes("Emas")).length;
-            document.getElementById('gold-total').innerText = goldCount;
-            document.getElementById('comp-total').innerText = database.length;
-
-            // Render Awal
-            renderAchievements();
-        }
-
-        // Jalankan Aplikasi
-        window.addEventListener('DOMContentLoaded', initApp);
+        window.onload = () => {
+            renderTable();
+            document.getElementById('total-gold').innerText = repository.filter(i => i.result.includes("Emas")).length;
+            document.getElementById('total-participation').innerText = repository.length;
+        };
     </script>
 </body>
 </html>
