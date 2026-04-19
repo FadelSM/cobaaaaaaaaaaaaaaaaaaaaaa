@@ -355,10 +355,8 @@
         let countdownId = `timer-${item.id}`;
 
         if (res.includes("coming soon")) {
-            // Tempatkan ID khusus untuk target hitung mundur
             displayResult = `<span id="${countdownId}">Menghitung...</span>`;
             
-            // Jalankan fungsi hitung mundur
             setInterval(() => {
     const eventDate = new Date(item.date).getTime();
     const now = new Date().getTime();
@@ -370,10 +368,8 @@
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             
             if (days >= 1) {
-                // Jika masih 1 hari atau lebih, tampilkan format "X Hari lagi"
                 timerElement.innerHTML = `⏳ ${days + 1} Hari lagi`;
             } else {
-                // Jika kurang dari 24 jam, tampilkan format jam:menit:detik
                 const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                 const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
                 const s = Math.floor((distance % (1000 * 60)) / 1000);
@@ -430,7 +426,6 @@ initDashboard();
         function updateClock() {
     const now = new Date();
     
-    // Format Jam
     const timeStr = now.toLocaleTimeString('id-ID', { 
         hour: '2-digit', 
         minute: '2-digit', 
@@ -438,7 +433,6 @@ initDashboard();
         hour12: false 
     });
     
-    // Format Tanggal Singkat
     const dateStr = now.toLocaleDateString('id-ID', { 
         day: 'numeric', 
         month: 'short' 
