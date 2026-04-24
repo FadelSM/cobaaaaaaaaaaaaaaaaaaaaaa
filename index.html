@@ -428,6 +428,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         function initDashboard() {
     displayData(repository);
     document.getElementById('count-gold').innerText = repository.filter(i => i.result.includes("Emas")).length;
+    document.getElementById('count-silver').innerText = repository.filter(i => i.result.includes("Perak")).length;
     document.getElementById('count-total').innerText = repository.length;
 }
 
