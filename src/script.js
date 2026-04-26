@@ -13,7 +13,7 @@ const repository = [
     { id: 12, date: "05 Apr 2026", name: "Future Science Competition (FSC)", host: "Yaspresnas", field: "Kimia", result: "Medali Perak", link: "#" },
     { id: 13, date: "05 Apr 2026", name: "Future Science Competition (FSC)", host: "Yaspresnas", field: "Informatika", result: "Medali Perak", link: "#" },
     { id: 14, date: "19 Apr 2026 14:00", name: "Pekan Sains Pelajar Indonesia (PSPI)", host: "Gemanesia", field: "Informatika", result: "Medali Perak", link: "#" },
-    { id: 15, date: "19 Apr 2026 11:00", name: "Olimpiade Sains dan Teknologi Nasional (OSTN)", host: "Sentral Olimpiade", field: "Biologi", result: "Medali Emas", link: "#" },
+    { id: 15, date: "19 Apr 2026 11:00", name: "Olimpiade Sains dan Teknologi Nasional (OSTN)", host: "Sentral Olimpiade", field: "Biologi", result: "Medali Emas (A+)", link: "#" },
     { id: 16, date: "26 Apr 2026 14:00", name: "Kejuaraan Sains Nasional (KSN)", host: "Puskanas", field: "Informatika", result: "Coming Soon", link: "#" },
     { id: 17, date: "24 May 2026 15:00", name: "Sentral Olimpiade Nasional (SEON)", host: "Sentral Olimpiade", field: "Informatika", result: "Coming Soon", link: "#" },
     { id: 18, date: "24 May 2026 14:00", name: "Sentral Olimpiade Nasional (SEON)", host: "Sentral Olimpiade", field: "Geografi", result: "Coming Soon", link: "#" }
