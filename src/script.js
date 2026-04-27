@@ -25,43 +25,40 @@ const searchBar = document.getElementById('search-bar');
 function displayData(data) {
     renderTarget.innerHTML = data.length ? "" : '<tr><td colspan="5" style="text-align:center; padding:50px; color:#666;">Data tidak ditemukan...</td></tr>';
     
+    const now = new Date();
+    const currentDay = now.getDay();
+    const currentHour = now.getHours();
+
     data.forEach((item, index) => {
-        const res = item.result.toLowerCase();
-        let badgeClass = "badge-pending";
         let displayResult = item.result;
+        let badgeClass = "badge-pending";
         let countdownId = `timer-${item.id}`;
-        
+
+        // // TANDAI: Logika Sembunyikan Hasil Otomatis
         if (item.isAutoRelease) {
             const isReleased = currentDay >= item.releaseDay && currentHour >= item.releaseHour;
-        if (!isReleased) {
+            if (!isReleased) {
                 displayResult = "⏳ Menunggu Pengumuman";
             }
         }
 
-        const res = displayResult.toLowerCase();
-        
-        if (res.includes("coming soon")) {
+        const resLower = displayResult.toLowerCase();
+
+        if (resLower.includes("coming soon")) {
             displayResult = `<span id="${countdownId}">Menghitung...</span>`;
             
             setInterval(() => {
                 const eventDate = new Date(item.date).getTime();
                 const processDeadline = eventDate + (2 * 60 * 60 * 1000); 
-                const now = new Date().getTime();
-                const distance = eventDate - now;
+                const currentTime = new Date().getTime();
+                const distance = eventDate - currentTime;
                 const timerElement = document.getElementById(countdownId);
 
                 if (timerElement) {
                     if (distance > 0) {
                         const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                        if (days >= 1) {
-                            timerElement.innerHTML = `⏳ ${days + 1} Hari lagi`;
-                        } else {
-                            const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                            const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                            const s = Math.floor((distance % (1000 * 60)) / 1000);
-                            timerElement.innerHTML = `⏳ ${h}h ${m}m ${s}s`;
-                        }
-                    } else if (now < processDeadline) {
+                        timerElement.innerHTML = days >= 1 ? `⏳ ${days + 1} Hari lagi` : "⏳ Menghitung...";
+                    } else if (currentTime < processDeadline) {
                         timerElement.innerHTML = "Proses Dikerjakan";
                         timerElement.style.color = "#fbbf24";
                     } else {
@@ -72,8 +69,8 @@ function displayData(data) {
             }, 1000);
         }
 
-        if (res.includes("emas")) badgeClass = "badge-gold";
-        else if (res.includes("perak")) badgeClass = "badge-silver";
+        if (resLower.includes("emas")) badgeClass = "badge-gold";
+        else if (resLower.includes("perak")) badgeClass = "badge-silver";
 
         const hasLink = item.link && item.link !== "#";
         const row = `
@@ -91,7 +88,7 @@ function displayData(data) {
 
 searchBar.addEventListener('input', (e) => {
     const keyword = e.target.value.toLowerCase();
-    const filtered = getActiveData().filter(item => 
+    const filtered = repository.filter(item => 
         item.name.toLowerCase().includes(keyword) || 
         item.field.toLowerCase().includes(keyword)
     );
@@ -108,8 +105,9 @@ function initDashboard() {
         if (!item.isAutoRelease) return true;
         return currentDay >= item.releaseDay && currentHour >= item.releaseHour;
     });
-    document.getElementById('count-gold').innerText = repository.filter(i => i.result.includes("Emas")).length;
-    document.getElementById('count-silver').innerText = repository.filter(i => i.result.includes("Perak")).length;
+
+    document.getElementById('count-gold').innerText = releasedItems.filter(i => i.result.includes("Emas")).length;
+    document.getElementById('count-silver').innerText = releasedItems.filter(i => i.result.includes("Perak")).length;
     document.getElementById('count-total').innerText = repository.length;
 }
 
