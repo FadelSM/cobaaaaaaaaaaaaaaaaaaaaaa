@@ -14,13 +14,25 @@ const repository = [
     { id: 13, date: "05 Apr 2026", name: "Future Science Competition (FSC)", host: "Yaspresnas", field: "Informatika", result: "Medali Perak", link: "#" },
     { id: 14, date: "19 Apr 2026 14:00", name: "Pekan Sains Pelajar Indonesia (PSPI)", host: "Gemanesia", field: "Informatika", result: "Medali Perak", link: "#" },
     { id: 15, date: "19 Apr 2026 11:00", name: "Olimpiade Sains dan Teknologi Nasional (OSTN)", host: "Sentral Olimpiade", field: "Biologi", result: "Medali Emas (A+)", link: "#" },
-    { id: 16, date: "26 Apr 2026 14:00", name: "Kejuaraan Sains Nasional (KSN)", host: "Puskanas", field: "Informatika", result: "Coming Soon", link: "#", releaseDay: 2, releaseHour: 12 },
+    { id: 16, date: "26 Apr 2026 14:00", name: "Kejuaraan Sains Nasional (KSN)", host: "Puskanas", field: "Informatika", result: "Medali Emas (A+)", link: "#", isAutoRelease: true, releaseDay: 2, releaseHour: 12 },
     { id: 17, date: "24 May 2026 15:00", name: "Sentral Olimpiade Nasional (SEON)", host: "Sentral Olimpiade", field: "Informatika", result: "Coming Soon", link: "#" },
     { id: 18, date: "24 May 2026 14:00", name: "Sentral Olimpiade Nasional (SEON)", host: "Sentral Olimpiade", field: "Geografi", result: "Coming Soon", link: "#" }
 ];
 
 const renderTarget = document.getElementById('render-target');
 const searchBar = document.getElementById('search-bar');
+
+function getActiveData() {
+    const now = new Date();
+    const currentDay = now.getDay();
+    const currentHour = now.getHours();
+
+    return repository.filter(item => {
+        if (!item.isAutoRelease) return true;
+        // Hanya rilis jika hari ini >= Selasa DAN jam >= 12
+        return currentDay >= item.releaseDay && currentHour >= item.releaseHour;
+    });
+}
 
 function displayData(data) {
     renderTarget.innerHTML = data.length ? "" : '<tr><td colspan="5" style="text-align:center; padding:50px; color:#666;">Data tidak ditemukan...</td></tr>';
@@ -82,7 +94,7 @@ function displayData(data) {
 
 searchBar.addEventListener('input', (e) => {
     const keyword = e.target.value.toLowerCase();
-    const filtered = repository.filter(item => 
+    const filtered = getActiveData().filter(item => 
         item.name.toLowerCase().includes(keyword) || 
         item.field.toLowerCase().includes(keyword)
     );
@@ -90,7 +102,8 @@ searchBar.addEventListener('input', (e) => {
 });
 
 function initDashboard() {
-    displayData(repository);
+    const activeData = getActiveData();
+    displayData(activeData);
     document.getElementById('count-gold').innerText = repository.filter(i => i.result.includes("Emas")).length;
     document.getElementById('count-silver').innerText = repository.filter(i => i.result.includes("Perak")).length;
     document.getElementById('count-total').innerText = repository.length;
