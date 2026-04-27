@@ -22,18 +22,6 @@ const repository = [
 const renderTarget = document.getElementById('render-target');
 const searchBar = document.getElementById('search-bar');
 
-function getActiveData() {
-    const now = new Date();
-    const currentDay = now.getDay();
-    const currentHour = now.getHours();
-
-    return repository.filter(item => {
-        if (!item.isAutoRelease) return true;
-        // Hanya rilis jika hari ini >= Selasa DAN jam >= 12
-        return currentDay >= item.releaseDay && currentHour >= item.releaseHour;
-    });
-}
-
 function displayData(data) {
     renderTarget.innerHTML = data.length ? "" : '<tr><td colspan="5" style="text-align:center; padding:50px; color:#666;">Data tidak ditemukan...</td></tr>';
     
@@ -42,7 +30,16 @@ function displayData(data) {
         let badgeClass = "badge-pending";
         let displayResult = item.result;
         let countdownId = `timer-${item.id}`;
+        
+        if (item.isAutoRelease) {
+            const isReleased = currentDay >= item.releaseDay && currentHour >= item.releaseHour;
+        if (!isReleased) {
+                displayResult = "⏳ Menunggu Pengumuman";
+            }
+        }
 
+        const res = displayResult.toLowerCase();
+        
         if (res.includes("coming soon")) {
             displayResult = `<span id="${countdownId}">Menghitung...</span>`;
             
@@ -102,8 +99,15 @@ searchBar.addEventListener('input', (e) => {
 });
 
 function initDashboard() {
-    const activeData = getActiveData();
-    displayData(activeData);
+    displayData(repository);
+    const now = new Date();
+    const currentDay = now.getDay();
+    const currentHour = now.getHours();
+
+    const releasedItems = repository.filter(item => {
+        if (!item.isAutoRelease) return true;
+        return currentDay >= item.releaseDay && currentHour >= item.releaseHour;
+    });
     document.getElementById('count-gold').innerText = repository.filter(i => i.result.includes("Emas")).length;
     document.getElementById('count-silver').innerText = repository.filter(i => i.result.includes("Perak")).length;
     document.getElementById('count-total').innerText = repository.length;
