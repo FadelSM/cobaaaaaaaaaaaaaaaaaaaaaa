@@ -17,7 +17,7 @@ body {
     color: var(--text-main);
     font-family: 'Inter', sans-serif;
     margin: 0;
-    display: flex;
+    display: flex; /* Sidebar dan Main bersandingan di Laptop[cite: 3] */
     min-height: 100vh;
 }
 
@@ -30,6 +30,9 @@ aside {
     flex-direction: column;
     flex-shrink: 0;
     box-sizing: border-box;
+    position: sticky; /* Sidebar tetap diam saat di-scroll di Laptop */
+    top: 0;
+    height: 100vh;
 }
 
 .dev-profile { text-align: center; margin-bottom: 30px; }
@@ -49,56 +52,25 @@ aside {
 .profile-meta p { margin: 0; font-size: 0.75rem; color: var(--slate-400); text-transform: uppercase; letter-spacing: 0.5px; }
 .profile-meta b { color: var(--text-main); display: block; font-size: 0.9rem; margin-top: 2px; text-transform: none; }
 
-.social-links { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
-.btn-social {
-    display: flex; align-items: center; justify-content: center; gap: 8px; color: white;
-    text-decoration: none; font-size: 0.85rem; font-weight: 700; padding: 12px; border-radius: 12px;
-    transition: transform 0.2s, opacity 0.2s;
-}
-
-.footer-socials {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 40px;
-    margin-bottom: 15px;
-}
-
-.footer-socials a {
-    transition: transform 0.3s ease;
-    display: inline-block;
-}
-
-.footer-socials a:hover {
-    transform: scale(1.2);
-}
-
-.footer-socials img {
-    width: 30px;
-    height: 30px;
-    display: block;
-}
-
-main { flex: 1; padding: 60px; overflow-y: auto; box-sizing: border-box; width: 100%; }
-#local-clock {
-    background: var(--slate-800); padding: 8px 12px; border-radius: 10px; border: 1px solid var(--slate-700);
-    font-size: 0.75rem; color: var(--indigo-500); font-family: monospace;
-}
-
-.search-input {
-    width: 100%; max-width: 400px; background: var(--slate-800); border: 1px solid var(--slate-700);
-    padding: 12px 16px; border-radius: 12px; color: #fff; margin-bottom: 30px; outline: none;
-}
-
 .separator {
-    width: 50px; /* Panjang garis */
-    height: 2px; /* Tebal garis */
-    background-color: var(--indigo-500); /* Warna garis mengikuti tema indigo */
-    margin: 20px 0; /* Jarak atas dan bawah garis */
+    width: 50px;
+    height: 2px;
+    background-color: var(--indigo-500);
+    margin: 20px 0;
     border-radius: 2px;
     opacity: 0.6;
 }
 
+main { 
+    flex: 1; 
+    padding: 60px; 
+    overflow-y: auto; 
+    box-sizing: border-box; 
+    width: 100%;
+    max-width: calc(100% - 280px); /* Mencegah konten melebar berlebihan di Laptop[cite: 3] */
+}
+
+/* --- STATS & TABLE --- */
 .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 40px; }
 .stat-card { background: var(--slate-800); padding: 24px; border-radius: 16px; border: 1px solid var(--slate-700); text-align: center; }
 .stat-value { font-size: 2.5rem; font-weight: 700; color: var(--indigo-500); margin-bottom: 8px; }
@@ -109,21 +81,23 @@ table { width: 100%; border-collapse: collapse; min-width: 700px; }
 th { background: #1e293b; padding: 20px; font-size: 0.75rem; color: var(--slate-400); border-bottom: 1px solid var(--slate-700); text-transform: uppercase; }
 td { padding: 18px 20px; border-bottom: 1px solid var(--slate-700); font-size: 0.9rem; }
 
-.badge { display: inline-block; padding: 6px 12px; border-radius: 8px; font-size: 0.75rem; font-weight: 600; }
-.badge-gold { background: rgba(251, 191, 36, 0.15); color: var(--gold-color); border: 1px solid rgba(251, 191, 36, 0.3); }
-.badge-silver { background: rgba(203, 213, 225, 0.15); color: var(--silver-color); border: 1px solid rgba(203, 213, 225, 0.3); }
-.badge-pending { background: rgba(148, 163, 184, 0.1); color: var(--coming-color); }
-
-.comp-link { color: #fff; text-decoration: none; font-weight: 600; }
-.comp-link:hover { color: var(--indigo-500); }
-
-footer { margin-top: 60px; padding: 20px; border-top: 1px solid var(--slate-700); text-align: center; color: var(--slate-600); font-size: 0.8rem; }
-
-@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-@keyframes gradientBorder { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
-
+/* --- RESPONSIVE DESAIN: KHUSUS HP[cite: 3] --- */
 @media (max-width: 768px) {
-    body { flex-direction: column; }
-    aside { width: 100%; border-right: none; border-bottom: 1px solid var(--slate-700); }
-    main { padding: 30px 20px; }
+    body { flex-direction: column; } /* Tampilan bertumpuk vertikal di HP[cite: 3] */
+    aside { 
+        width: 100%; 
+        height: auto; 
+        position: relative; 
+        border-right: none; 
+        border-bottom: 1px solid var(--slate-700); 
+        padding: 30px 20px;
+    }
+    main { 
+        padding: 30px 20px; 
+        max-width: 100%; /* Mengambil lebar penuh di layar HP[cite: 3] */
+    }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
 }
+
+/* --- ANIMASI --- */
+@keyframes gradientBorder { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
