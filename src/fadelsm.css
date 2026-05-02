@@ -64,6 +64,11 @@ aside {
     margin-bottom: 15px;
 }
 
+.verified-badge {
+    color: #38b6ff;
+    font-size: 1rem;
+}
+
 .footer-socials a {
     transition: transform 0.3s ease;
     display: inline-block;
