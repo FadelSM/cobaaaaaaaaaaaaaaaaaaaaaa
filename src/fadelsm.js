@@ -15,12 +15,12 @@ const repository = [
     { id: 14, date: "19 Apr 2026 14:00", name: "Pekan Sains Pelajar Indonesia (PSPI)", host: "Gemanesia", field: "Informatika", result: "Medali Perak", link: "#" },
     { id: 15, date: "19 Apr 2026 11:00", name: "Olimpiade Sains dan Teknologi Nasional (OSTN)", host: "Sentral Olimpiade", field: "Biologi", result: "Medali Emas (A+)", link: "#" },
     { id: 16, date: "26 Apr 2026 14:00", name: "Kejuaraan Sains Nasional (KSN)", host: "Puskanas", field: "Informatika", result: "Medali Emas (A+)", link: "#" },
-    { id: 18, date: "3 May 2026 15:00", name: "Olimpiade Pendidikan Nasional (OPN)", host: "SentralOlimpiade X Yaspresnas", field: "Informatika", result: "Coming Soon", link: "#" },
-    { id: 19, date: "24 May 2026 15:00", name: "Sentral Olimpiade Nasional (SEON)", host: "Sentral Olimpiade", field: "Informatika", result: "Coming Soon", link: "#" },
-    { id: 20, date: "24 May 2026 14:00", name: "Sentral Olimpiade Nasional (SEON)", host: "Sentral Olimpiade", field: "Geografi", result: "Coming Soon", link: "#" },
-    { id: 21, date: "28 juny 2026 09:00", name: "Olimpiade Sains Siswa Nasional (OSSN)", host: "Puskanas", field: "Kimia", result: "Coming Soon", link: "#" },
-    { id: 22, date: "28 juny 2026 13:00", name: "Olimpiade Sains Siswa Nasional (OSSN)", host: "Puskanas", field: "Fisika", result: "Coming Soon", link: "#" },
-    { id: 23, date: "28 juny 2026 14:00", name: "Olimpiade Sains Siswa Nasional (OSSN)", host: "Puskanas", field: "Informatika", result: "Coming Soon", link: "#" }
+    { id: 17, date: "3 May 2026 15:00", name: "Olimpiade Pendidikan Nasional (OPN)", host: "SentralOlimpiade X Yaspresnas", field: "Informatika", result: "Coming Soon", link: "#" },
+    { id: 18, date: "24 May 2026 15:00", name: "Sentral Olimpiade Nasional (SEON)", host: "Sentral Olimpiade", field: "Informatika", result: "Coming Soon", link: "#" },
+    { id: 19, date: "24 May 2026 14:00", name: "Sentral Olimpiade Nasional (SEON)", host: "Sentral Olimpiade", field: "Geografi", result: "Coming Soon", link: "#" },
+    { id: 20, date: "28 juny 2026 09:00", name: "Olimpiade Sains Siswa Nasional (OSSN)", host: "Puskanas", field: "Kimia", result: "Coming Soon", link: "#" },
+    { id: 21, date: "28 juny 2026 13:00", name: "Olimpiade Sains Siswa Nasional (OSSN)", host: "Puskanas", field: "Fisika", result: "Coming Soon", link: "#" },
+    { id: 22, date: "28 juny 2026 14:00", name: "Olimpiade Sains Siswa Nasional (OSSN)", host: "Puskanas", field: "Informatika", result: "Coming Soon", link: "#" }
 ];
 
 const renderTarget = document.getElementById('render-target');
@@ -61,7 +61,15 @@ function displayData(data) {
                 if (timerElement) {
                     if (distance > 0) {
                         const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                        timerElement.innerHTML = days >= 1 ? `⏳ ${days + 1} Hari lagi` : "⏳ Menunggu Waktu";
+                        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            if (days > 0) {
+                timerElement.innerHTML = `⏳ ${days}h ${hours}j ${minutes}m`;
+            } else {
+                timerElement.innerHTML = `⏳ ${hours}j ${minutes}m ${seconds}s`;
+            }
                     } else if (currentTime < processDeadline) {
                         timerElement.innerHTML = "Proses Dikerjakan";
                         timerElement.style.color = "#fbbf24";
