@@ -61,7 +61,7 @@ function displayData(data) {
                 if (timerElement) {
                     if (distance > 0) {
                         const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                        timerElement.innerHTML = days >= 1 ? `⏳ ${days + 1} Hari lagi` : "⏳ Menghitung...";
+                        timerElement.innerHTML = days >= 1 ? `⏳ ${days + 1} Hari lagi` : "⏳ Menunggu Waktu";
                     } else if (currentTime < processDeadline) {
                         timerElement.innerHTML = "Proses Dikerjakan";
                         timerElement.style.color = "#fbbf24";
