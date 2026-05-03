@@ -65,9 +65,9 @@ function displayData(data) {
                         const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
                         const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            if (days > 0) {
-                timerElement.innerHTML = `⏳ ${days}h ${hours}j ${minutes}m`;
-            } else {
+            if (days >= 1) {
+                timerElement.innerHTML = `⏳ ${days + 1} Hari lagi`;
+    } else {
                 timerElement.innerHTML = `⏳ ${hours}j ${minutes}m ${seconds}s`;
             }
                     } else if (currentTime < processDeadline) {
